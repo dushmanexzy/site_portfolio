@@ -37,9 +37,9 @@ ul {
   overflow: hidden;
 }
 
-.stop-scroll {
-  @include stop-scroll;
-}
+// .stop-scroll {
+//   @include stop-scroll;
+// }
 
 .is-hidden {
   display: none !important; // stylelint-disable-line declaration-no-important
