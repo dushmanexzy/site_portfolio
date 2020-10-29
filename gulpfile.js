@@ -14,6 +14,7 @@ const notify = require('gulp-notify');
 const svgSprite = require('gulp-svg-sprite');
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
+const ttf2woff =require('gulp-ttf2woff');
 const ttf2woff2 = require('gulp-ttf2woff2');
 const fs = require('fs');
 const tiny = require('gulp-tinypng-compress');
@@ -58,6 +59,7 @@ const htmlInclude = () => {
 
 const fonts = () => {
   return src('./src/fonts/**.ttf')
+    .pipe(ttf2woff())
     .pipe(ttf2woff2())
     .pipe(dest('./app/fonts/'));
 }
