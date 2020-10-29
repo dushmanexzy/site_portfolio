@@ -2,4 +2,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.call {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__btn {
+    border: 1px solid var(--color-radical-red);
+    width: 207px;
+    height: 45px;
+    font-size: 16px;
+    color: var(--color-sunset-orange);
+  }
+}
+
+.call-tel {
+  margin-right: 30px;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 54px;
 }
