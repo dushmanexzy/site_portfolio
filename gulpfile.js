@@ -1,145 +1,338 @@
-"use strict";
-
-const gulp = require('gulp');
-
+const {src, dest, parallel, series, watch} = require('gulp');
+const autoprefixer = require('gulp-autoprefixer');
+const cleanCSS = require('gulp-clean-css');
+const uglify = require('gulp-uglify-es').default;
+const del = require('del');
+const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
-const concat = require('gulp-concat');
-const server = require('browser-sync').create();
-const clean = require('gulp-clean');
-const notify = require('gulp-notify');
 const rename = require('gulp-rename');
+const fileinclude = require('gulp-file-include');
+const gutil = require('gulp-util');
+const ftp = require('vinyl-ftp');
+const sourcemaps = require('gulp-sourcemaps');
+const notify = require('gulp-notify');
+const svgSprite = require('gulp-svg-sprite');
+const webpack = require('webpack');
+const webpackStream = require('webpack-stream');
+const ttf2woff2 = require('gulp-ttf2woff2');
+const fs = require('fs');
+const tiny = require('gulp-tinypng-compress');
+const rev = require('gulp-rev');
+const revRewrite = require('gulp-rev-rewrite');
+const revdel = require('gulp-rev-delete-original');
+const htmlmin = require('gulp-htmlmin');
 
-const minifyCss = require('gulp-clean-css');
-
-const uglify = require('gulp-uglify');
-
-const htmlMin = require('gulp-htmlmin');
-
-const imageMin = require("gulp-imagemin");
-const tinymin = require('gulp-tinypng');
-const webp = require("gulp-webp");
-
-const typeOfCompression = 4;
-const qualityOfImage = 75;
-
-const path = {
-  cssBuild: [
-    './src/css/swiper.css',
-    './src/css/styles.css'
-  ],
-
-  jsBuild: [
-    './src/js/jquery.min.js',
-    './src/js/swiper.min.js',
-    './src/js/swiper.js',
-    './src/js/modal.js',
-    './src/js/navigation.js',
-    './src/js/smoothScroll.js'
-  ]
+// DEV
+//svg sprite
+const svgSprites = () => {
+  return src('./src/img/svg/**.svg')
+    .pipe(svgSprite({
+      mode: {
+        stack: {
+          sprite: "../sprite.svg" //sprite file name
+        }
+      },
+    }))
+    .pipe(dest('./app/img'));
 }
 
-function del() {
-  return gulp.src(['build/*', '!build/fonts', '!build/img'], {
-    read: false
+const resources = () => {
+  return src('./src/resources/**')
+    .pipe(dest('./app'))
+}
+
+const imgToApp = () => {
+	return src(['./src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg', './src/img/*.svg'])
+    .pipe(dest('./app/img'))
+}
+
+const htmlInclude = () => {
+  return src(['./src/*.html'])
+    .pipe(fileinclude({
+      prefix: '@',
+      basepath: '@file'
+    }))
+    .pipe(dest('./app'))
+    .pipe(browserSync.stream());
+}
+
+const fonts = () => {
+  return src('./src/fonts/**.ttf')
+    .pipe(ttf2woff2())
+    .pipe(dest('./app/fonts/'));
+}
+
+const checkWeight = (fontname) => {
+  let weight = 400;
+  switch (true) {
+    case /Thin/.test(fontname):
+      weight = 100;
+      break;
+    case /ExtraLight/.test(fontname):
+      weight = 200;
+      break;
+    case /Light/.test(fontname):
+      weight = 300;
+      break;
+    case /Regular/.test(fontname):
+      weight = 400;
+      break;
+    case /Medium/.test(fontname):
+      weight = 500;
+      break;
+    case /SemiBold/.test(fontname):
+      weight = 600;
+      break;
+    case /Semi/.test(fontname):
+      weight = 600;
+      break;
+    case /Bold/.test(fontname):
+      weight = 700;
+      break;
+    case /ExtraBold/.test(fontname):
+      weight = 800;
+      break;
+    case /Heavy/.test(fontname):
+      weight = 700;
+      break;
+    case /Black/.test(fontname):
+      weight = 900;
+      break;
+    default:
+      weight = 400;
+  }
+  return weight;
+}
+
+const cb = () => {}
+
+let srcFonts = './src/scss/_fonts.scss';
+let appFonts = './app/fonts/';
+
+const fontsStyle = (done) => {
+  let file_content = fs.readFileSync(srcFonts);
+
+  fs.writeFile(srcFonts, '', cb);
+  fs.readdir(appFonts, function (err, items) {
+    if (items) {
+      let c_fontname;
+      for (var i = 0; i < items.length; i++) {
+				let fontname = items[i].split('.');
+				fontname = fontname[0];
+        let font = fontname.split('-')[0];
+        let weight = checkWeight(fontname);
+
+        if (c_fontname != fontname) {
+          fs.appendFile(srcFonts, '@include font-face("' + font + '", "' + fontname + '", ' + weight +');\r\n', cb);
+        }
+        c_fontname = fontname;
+      }
+    }
   })
-    .pipe(clean())
+
+  done();
 }
 
-function copy() {
-  return gulp.src([
-    'src/fonts/*',
-    'src/img/*'
-  ], {
-    base: 'src'
-  })
-    .pipe(gulp.dest('build'));
-}
-
-function html() {
-  return gulp.src('./src/*.html')
-    .pipe(htmlMin())
+const styles = () => {
+  return src('./src/scss/**/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      outputStyle: 'expanded'
+    }).on("error", notify.onError()))
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./build'))
-    .pipe(server.stream())
-}
-
-function styles() {
-  return gulp.src('./src/scss/**/*.scss')
-    .pipe(sass().on("error", notify.onError()))
-    .pipe(gulp.dest('src/css'))
-    .pipe(server.stream())
-}
-
-function buildStyles() {
-  return gulp.src(path.cssBuild)
-    .pipe(concat('main.css'))
-    .pipe(gulp.dest('./build/css'))
-    .pipe(minifyCss())
-    .pipe(rename({
-      suffix: '.min'
+    .pipe(autoprefixer({
+      cascade: false,
     }))
-    .pipe(gulp.dest('./build/css'))
-    .pipe(server.stream())
+    .pipe(cleanCSS({
+      level: 2
+    }))
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest('./app/css/'))
+    .pipe(browserSync.stream());
 }
 
-function scripts() {
-  return gulp.src(path.jsBuild)
-    .pipe(concat('all.js'))
-    .pipe(gulp.dest('./build/js'))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(uglify())
-    .pipe(gulp.dest('./build/js'))
-    .pipe(server.stream())
+const scripts = () => {
+  return src('./src/js/main.js')
+    .pipe(webpackStream(
+      {
+        mode: 'development',
+        output: {
+          filename: 'main.js',
+        },
+        module: {
+          rules: [{
+            test: /\.m?js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env']
+              }
+            }
+          }]
+        },
+      }
+    ))
+    .on('error', function (err) {
+      console.error('WEBPACK ERROR', err);
+      this.emit('end'); // Don't stop the rest of the task
+    })
+
+    .pipe(sourcemaps.init())
+    .pipe(uglify().on("error", notify.onError()))
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest('./app/js'))
+    .pipe(browserSync.stream());
 }
 
-// trDJqH71snq3PZqlpMlJ8smfXYvWgynf
-
-function tinypngImg () {
-  return gulp.src('src/img/*.{png,jpg}')
-    .pipe(tinymin('trDJqH71snq3PZqlpMlJ8smfXYvWgynf'))
-    .pipe(gulp.dest('build/img'));
-};
-
-function images() {
-  return gulp.src("src/images/**/*.{png,jpg}")
-    .pipe(imageMin([
-      imageMin.optipng({ optimizationLevel: typeOfCompression }),
-      imageMin.mozjpeg({ quality: qualityOfImage, progressive: true }),
-      imageMin.svgo({
-        plugins: [
-            {removeViewBox: true},
-            {cleanupIDs: false}
-        ]
-      })
-    ]))
-    .pipe(gulp.dest("src/img"));
-};
-
-function webpImg() {
-  return gulp.src("build/img/*.{png,jpg}")
-    .pipe(webp({
-      quality: 95,
-      lossless: true
-    }))
-    .pipe(gulp.dest("build/img/webp"));
-};
-
-function watch() {
-  server.init({
-    server: "build/",
-    index: 'index.min.html',
-    browser: 'chrome'
+const watchFiles = () => {
+  browserSync.init({
+    server: {
+      baseDir: "./app"
+    },
   });
 
-  gulp.watch('./src/scss/**/*.scss', gulp.series(styles, buildStyles));
-  gulp.watch('./src/js/**/*.js', scripts);
-  gulp.watch('./src/*.html').on('change', gulp.series(html, server.reload));
+  watch('./src/scss/**/*.scss', styles);
+  watch('./src/js/**/*.js', scripts);
+  watch('./src/html/*.html', htmlInclude);
+  watch('./src/*.html', htmlInclude);
+  watch('./src/resources/**', resources);
+  watch('./src/img/**.jpg', imgToApp);
+  watch('./src/img/**.jpeg', imgToApp);
+  watch('./src/img/**.png', imgToApp);
+  watch('./src/img/svg/**.svg', svgSprites);
+  watch('./src/fonts/**', fonts);
+  watch('./src/fonts/**', fontsStyle);
 }
 
-gulp.task('imgOptim', gulp.series(images, tinypngImg, webpImg));
+const clean = () => {
+	return del(['app/*'])
+}
 
-gulp.task('default', gulp.series(del, copy, gulp.parallel(scripts, gulp.series(styles, buildStyles)), html, watch));
+exports.fileinclude = htmlInclude;
+exports.styles = styles;
+exports.scripts = scripts;
+exports.watchFiles = watchFiles;
+exports.fonts = fonts;
+exports.fontsStyle = fontsStyle;
+
+exports.default = series(clean, parallel(htmlInclude, scripts, fonts, resources, imgToApp, svgSprites), fontsStyle, styles, watchFiles);
+
+// BUILD
+const tinypng = () => {
+  return src(['./src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg'])
+    .pipe(tiny({
+      key: 'HkdjDW01hVL5Db6HXSYlnHMk9HCvQfDT',
+      sigFile: './app/img/.tinypng-sigs',
+      parallel: true,
+      parallelMax: 50,
+      log: true,
+    }))
+    .pipe(dest('./app/img'))
+}
+
+const stylesBuild = () => {
+  return src('./src/scss/**/*.scss')
+    .pipe(sass({
+      outputStyle: 'expanded'
+    }).on("error", notify.onError()))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(autoprefixer({
+      cascade: false,
+    }))
+    .pipe(cleanCSS({
+      level: 2
+    }))
+    .pipe(dest('./app/css/'))
+}
+
+const scriptsBuild = () => {
+  return src('./src/js/main.js')
+    .pipe(webpackStream(
+
+        {
+          mode: 'development',
+          output: {
+            filename: 'main.js',
+          },
+          module: {
+            rules: [{
+              test: /\.m?js$/,
+              exclude: /(node_modules|bower_components)/,
+              use: {
+                loader: 'babel-loader',
+                options: {
+                  presets: ['@babel/preset-env']
+                }
+              }
+            }]
+          },
+        }))
+      .on('error', function (err) {
+        console.error('WEBPACK ERROR', err);
+        this.emit('end'); // Don't stop the rest of the task
+      })
+    .pipe(uglify().on("error", notify.onError()))
+    .pipe(dest('./app/js'))
+}
+
+const cache = () => {
+  return src('app/**/*.{css,js,svg,png,jpg,jpeg,woff2}', {
+    base: 'app'})
+    .pipe(rev())
+    .pipe(revdel())
+    .pipe(dest('app'))
+    .pipe(rev.manifest('rev.json'))
+    .pipe(dest('app'));
+};
+
+const rewrite = () => {
+  const manifest = src('app/rev.json');
+
+  return src('app/**/*.html')
+    .pipe(revRewrite({
+      manifest
+    }))
+    .pipe(dest('app'));
+}
+
+const htmlMinify = () => {
+	return src('app/**/*.html')
+		.pipe(htmlmin({
+			collapseWhitespace: true
+		}))
+		.pipe(dest('app'));
+}
+
+exports.cache = series(cache, rewrite);
+
+exports.build = series(clean, parallel(htmlInclude, scriptsBuild, fonts, resources, imgToApp, svgSprites), fontsStyle, stylesBuild, htmlMinify, tinypng);
+
+
+// deploy
+const deploy = () => {
+  let conn = ftp.create({
+    host: '',
+    user: '',
+    password: '',
+    parallel: 10,
+    log: gutil.log
+  });
+
+  let globs = [
+    'app/**',
+  ];
+
+  return src(globs, {
+      base: './app',
+      buffer: false
+    })
+    .pipe(conn.newer('')) // only upload newer files
+    .pipe(conn.dest(''));
+}
+
+exports.deploy = deploy;
