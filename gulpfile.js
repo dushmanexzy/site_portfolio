@@ -57,9 +57,15 @@ const htmlInclude = () => {
     .pipe(browserSync.stream());
 }
 
-const fonts = () => {
+const woffFonts = () => {
   return src('./src/fonts/**.ttf')
     .pipe(ttf2woff())
+    .pipe(ttf2woff2())
+    .pipe(dest('./app/fonts/'));
+}
+
+const woff2Fonts = () => {
+  return src('./src/fonts/**.ttf')
     .pipe(ttf2woff2())
     .pipe(dest('./app/fonts/'));
 }
@@ -205,7 +211,8 @@ const watchFiles = () => {
   watch('./src/img/**.jpeg', imgToApp);
   watch('./src/img/**.png', imgToApp);
   watch('./src/img/svg/**.svg', svgSprites);
-  watch('./src/fonts/**', fonts);
+  watch('./src/fonts/**', woffFonts);
+  watch('./src/fonts/**', woff2Fonts);
   watch('./src/fonts/**', fontsStyle);
 }
 
@@ -217,10 +224,11 @@ exports.fileinclude = htmlInclude;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.watchFiles = watchFiles;
-exports.fonts = fonts;
+exports.fonts = woffFonts;
+exports.fonts = woff2Fonts;
 exports.fontsStyle = fontsStyle;
 
-exports.default = series(clean, parallel(htmlInclude, scripts, fonts, resources, imgToApp, svgSprites), fontsStyle, styles, watchFiles);
+exports.default = series(clean, parallel(htmlInclude, scripts, woffFonts, woff2Fonts, resources, imgToApp, svgSprites), fontsStyle, styles, watchFiles);
 
 // BUILD
 const tinypng = () => {
@@ -312,7 +320,7 @@ const htmlMinify = () => {
 
 exports.cache = series(cache, rewrite);
 
-exports.build = series(clean, parallel(htmlInclude, scriptsBuild, fonts, resources, imgToApp, svgSprites), fontsStyle, stylesBuild, htmlMinify, tinypng);
+exports.build = series(clean, parallel(htmlInclude, scriptsBuild, woffFonts, woff2Fonts, resources, imgToApp, svgSprites), fontsStyle, stylesBuild, htmlMinify, tinypng);
 
 
 // deploy
