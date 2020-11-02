@@ -3,4 +3,5 @@ export default {
   $document: document,
   $html: document.documentElement,
   $body: document.body,
+  $worksSlider: document.querySelector('.works-slider'),
 }

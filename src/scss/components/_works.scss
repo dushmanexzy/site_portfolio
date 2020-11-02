@@ -1,0 +1,66 @@
+.works {
+  padding-top: 90px;
+  padding-bottom: 104px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    max-width: 1228px;
+  }
+
+  &__title {
+    margin-bottom: 104px;
+  }
+
+  &__content {
+    margin: 0;
+  }
+
+  &__image {
+    margin-bottom: 14px;
+  }
+
+  &__descr {
+    padding-left: 28px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 59.73px;
+    color: var(--color-bali-hai);
+  }
+}
+
+.works-slider {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 76px;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-wrapper {
+  padding: 0 28px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  top: 38.5%;
+  border-radius: 50%;
+  height: 60px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
+
+.swiper-button-prev {
+  content: url("../img/arrow.png");
+  left: 0;
+  width: 60px;
+}
+
+.swiper-button-next {
+  content: url("../img/arrow.png");
+  right: 0;
+  width: 60px;
+  transform: rotate(180deg);
+}
