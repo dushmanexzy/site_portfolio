@@ -1,5 +1,6 @@
 .skills {
   padding-top: 90px;
+  padding-bottom: 104px;
 
   &__container {
     display: flex;
@@ -9,13 +10,14 @@
   }
 
   &__title {
-    margin-bottom: 28px;
+    margin-bottom: 90px;
   }
 }
 
 .services {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 44px;
 
   &__item {
     display: flex;
@@ -23,14 +25,10 @@
     align-items: flex-start;
     justify-content: center;
     margin-bottom: 30px;
-    height: 200px;
+    padding-top: 42px;
+    min-height: 200px;
     max-width: 270px;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
-    text-align: center;
-    color: var(--color-bali-hai);
-    background-position: center;
+    background-position: top center;
     background-repeat: no-repeat;
 
     &:not(:last-child) {
@@ -42,23 +40,28 @@
     }
 
     &--layout {
-      padding-top: 104px;
       background-image: url("../img/layout.png");
     }
 
     &--adaptive {
-      padding-top: 104px;
       background-image: url("../img/adaptive.png");
     }
 
     &--code {
-      padding-top: 104px;
       background-image: url("../img/code.png");
     }
 
     &--correct {
-      padding-top: 104px;
       background-image: url("../img/test.png");
     }
+  }
+
+  &__text {
+    margin: 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: var(--color-bali-hai);
   }
 }
