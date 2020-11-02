@@ -1,0 +1,44 @@
+.cost {
+  padding-top: 72px;
+  padding-bottom: 80px;
+  background-image:
+    linear-gradient(
+      13deg,
+      #ff8f5a 0%,
+      #ff2f96 99%,
+      #ff2f96 100%
+    );
+  background-color: var(--color-gallery);
+
+  &__container {
+    padding-right: 100px;
+    padding-left: 130px;
+  }
+
+  &__text {
+    margin: 0;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 60px;
+    text-align: left;
+    color: var(--color-white);
+  }
+
+  &__descr {
+    display: inline-block;
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: left;
+    color: var(--color-white);
+
+    &::before {
+      content: "*";
+      display: inline-block;
+      margin-right: 4px;
+      font-size: 20px;
+    }
+  }
+}
