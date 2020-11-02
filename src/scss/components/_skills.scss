@@ -1,0 +1,64 @@
+.skills {
+  padding-top: 90px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    margin-bottom: 28px;
+  }
+}
+
+.services {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 30px;
+    height: 200px;
+    max-width: 270px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: var(--color-bali-hai);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+
+    &:nth-last-child(-n + 4) {
+      margin-bottom: 0;
+    }
+
+    &--layout {
+      padding-top: 104px;
+      background-image: url("../img/layout.png");
+    }
+
+    &--adaptive {
+      padding-top: 104px;
+      background-image: url("../img/adaptive.png");
+    }
+
+    &--code {
+      padding-top: 104px;
+      background-image: url("../img/code.png");
+    }
+
+    &--correct {
+      padding-top: 104px;
+      background-image: url("../img/test.png");
+    }
+  }
+}

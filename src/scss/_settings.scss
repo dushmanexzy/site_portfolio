@@ -92,6 +92,14 @@ ul {
   }
 }
 
+.section-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 59.73px;
+  color: var(--color-mine-shaft);
+}
+
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }
