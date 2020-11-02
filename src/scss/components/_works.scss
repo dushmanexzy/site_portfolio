@@ -3,12 +3,11 @@
   padding-bottom: 104px;
 
   &__container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 0;
-    max-width: 1228px;
   }
 
   &__title {
@@ -40,27 +39,27 @@
   height: 100%;
 }
 
-.swiper-wrapper {
-  padding: 0 28px;
-}
-
 .swiper-button-prev,
 .swiper-button-next {
-  top: 38.5%;
+  top: 45.5%;
+  border: none;
   border-radius: 50%;
   height: 60px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
 }
 
 .swiper-button-prev {
   content: url("../img/arrow.png");
-  left: 0;
+  left: -15px;
+  right: auto;
   width: 60px;
 }
 
 .swiper-button-next {
   content: url("../img/arrow.png");
-  right: 0;
+  left: auto;
+  right: -15px;
   width: 60px;
   transform: rotate(180deg);
 }
