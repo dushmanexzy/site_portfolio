@@ -33,10 +33,6 @@
     font-weight: 900;
     font-size: 80px;
     line-height: 104.64px;
-
-    @include sl {
-      font-size: 54px;
-    }
   }
 
   &__subtitle {
