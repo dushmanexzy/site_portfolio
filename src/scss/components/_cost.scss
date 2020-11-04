@@ -13,6 +13,10 @@
   &__container {
     padding-right: 100px;
     padding-left: 130px;
+
+    @include sl {
+      padding: 0 40px;
+    }
   }
 
   &__text {
