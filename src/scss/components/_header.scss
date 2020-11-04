@@ -10,6 +10,17 @@
   }
 }
 
+.burger {
+  display: none;
+  width: 45px;
+  height: 32px;
+  background-image: url("../img/burger.png");
+
+  @include sl {
+    display: block;
+  }
+}
+
 .call {
   display: flex;
   align-items: center;

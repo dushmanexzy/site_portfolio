@@ -13,6 +13,10 @@
 
   &__img {
     margin-right: -80px;
+
+    @include ll {
+      margin-right: 0;
+    }
   }
 }
 

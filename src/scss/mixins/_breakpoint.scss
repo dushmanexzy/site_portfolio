@@ -9,3 +9,15 @@
     @content;
   }
 }
+
+@mixin ll { // laptop L
+  @media (max-width: (1440px)) {
+    @content;
+  }
+}
+
+@mixin sl {
+  @media (max-width: (1200px)) {
+    @content;
+  }
+}

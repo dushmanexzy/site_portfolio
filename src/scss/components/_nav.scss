@@ -35,4 +35,8 @@
       background-color: var(--color-wild-watermelon);
     }
   }
+
+  @include sl {
+    display: none;
+  }
 }
