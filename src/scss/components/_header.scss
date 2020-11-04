@@ -45,4 +45,11 @@
   font-weight: 700;
   font-size: 25px;
   line-height: 54px;
+  transition: font 0.3s ease;
+
+  &:hover,
+  &:active {
+    font-size: 30px;
+    transition: font 0.3s ease;
+  }
 }
