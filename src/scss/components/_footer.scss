@@ -6,10 +6,19 @@
     padding-top: 82px;
     padding-right: 36px;
     padding-bottom: 77px;
+
+    @include sl {
+      padding-top: 104px;
+    }
   }
 
   &__nav {
+    display: inline-flex;
     margin-right: 305px;
+
+    @include sl {
+      margin-right: 48px;
+    }
   }
 
   .nav__list {
@@ -73,6 +82,10 @@
       content: url("../img/mail.png");
       margin-right: 20px;
     }
+  }
+
+  @include sl {
+    margin-right: 0;
   }
 }
 
