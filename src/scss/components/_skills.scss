@@ -33,10 +33,24 @@
 
     &:not(:last-child) {
       margin-right: 30px;
+
+      @include sl {
+        margin-right: 0;
+      }
     }
 
     &:nth-last-child(-n + 4) {
       margin-bottom: 0;
+
+      @include sl {
+        margin-bottom: 30px;
+      }
+    }
+
+    &:nth-last-child(-n + 2) {
+      @include sl {
+        margin-bottom: 0;
+      }
     }
 
     &--layout {
@@ -54,6 +68,10 @@
     &--correct {
       background-image: url("../img/test.png");
     }
+
+    @include sl {
+      width: 48%;
+    }
   }
 
   &__text {
@@ -63,5 +81,10 @@
     line-height: 30px;
     text-align: center;
     color: var(--color-bali-hai);
+  }
+
+  @include sl {
+    justify-content: space-between;
+    max-width: 650px;
   }
 }
