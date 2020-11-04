@@ -31,6 +31,10 @@ ul {
   padding: 0;
 }
 
+picture {
+  font-size: 0;
+}
+
 .is-outer {
   position: relative !important; // stylelint-disable-line declaration-no-important
   left: -9999px !important; // stylelint-disable-line declaration-no-important

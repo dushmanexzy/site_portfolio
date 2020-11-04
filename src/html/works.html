@@ -6,11 +6,17 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <figure class="works__content">
-            <img
-              src="img/anna-site.jpg"
-              alt="Фото главной страницы сайта гипнотерапии"
-              class="works__image"
-            />
+            <picture>
+              <source
+                media="(max-width: 1200px)"
+                srcset="img/anna-site__1024.png"
+              />
+              <img
+                src="img/anna-site.jpg"
+                alt="Фото главной страницы сайта гипнотерапии"
+                class="works__image"
+              />
+            </picture>
             <figcaption class="works__descr">
               Сайт психолога Веры Антоновой
             </figcaption>
@@ -18,30 +24,44 @@
         </div>
         <div class="swiper-slide">
           <figure class="works__content">
-            <img
-              src="img/baby-site.jpg"
-              alt="Фото главной страницы сайта гипнотерапии"
-              class="works__image"
-            />
+            <picture>
+              <source
+                media="(max-width: 1200px)"
+                srcset="img/baby-site__1024.png"
+              />
+              <img
+                src="img/baby-site.jpg"
+                alt="Фото ребенка в белой майке с игрушками вокруг"
+                class="works__image"
+              />
+            </picture>
             <figcaption class="works__descr">
-              Сайт психолога Веры Антоновой
+              Интернет-магазин детской одежды
             </figcaption>
           </figure>
         </div>
         <div class="swiper-slide">
           <figure class="works__content">
-            <img
-              src="img/fish-site.jpg"
-              alt="Фото главной страницы сайта гипнотерапии"
-              class="works__image"
-            />
+            <picture>
+              <source
+                media="(max-width: 1200px)"
+                srcset="img/fish-site__1024.png"
+              />
+              <img
+                src="img/fish-site.jpg"
+                alt="Фото рыбака с рыбой на крючке"
+                class="works__image"
+              />
+            </picture>
             <figcaption class="works__descr">
-              Сайт психолога Веры Антоновой
+              Сайт магазина «Рыболов»
             </figcaption>
           </figure>
         </div>
       </div>
     </div>
+
+    <div class="swiper-pagination"></div>
 
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>

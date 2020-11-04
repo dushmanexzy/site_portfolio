@@ -1,6 +1,7 @@
 .works {
   padding-top: 90px;
   padding-bottom: 103px;
+  background-color: var(--color-alabaster);
 
   &__container {
     position: relative;
@@ -28,6 +29,11 @@
     font-size: 20px;
     line-height: 59.73px;
     color: var(--color-bali-hai);
+
+    @include sl {
+      font-size: 25px;
+      line-height: 40.73px;
+    }
   }
 }
 
@@ -37,6 +43,31 @@
   margin-bottom: 76px;
   width: 100%;
   height: 100%;
+
+  @include sl {
+    margin-bottom: 212px;
+  }
+}
+
+.swiper-pagination {
+  bottom: 163px;
+  display: none;
+
+  &-bullet {
+    margin: 0 15px;
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-gallery);
+    opacity: 1;
+
+    &-active {
+      background-color: var(--color-red-orange);
+    }
+  }
+
+  @include sl {
+    display: block;
+  }
 }
 
 .swiper-button-prev,
@@ -54,6 +85,10 @@
   left: -15px;
   right: auto;
   width: 60px;
+
+  @include sl {
+    display: none;
+  }
 }
 
 .swiper-button-next {
@@ -62,4 +97,8 @@
   right: -15px;
   width: 60px;
   transform: rotate(180deg);
+
+  @include sl {
+    display: none;
+  }
 }
