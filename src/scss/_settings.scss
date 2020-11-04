@@ -74,6 +74,11 @@ ul {
   margin: 0 auto;
   padding: 0 15px;
   max-width: 1200px;
+
+  @include sl {
+    padding: 0 40px;
+    max-width: 1024px;
+  }
 }
 
 .link {
@@ -98,6 +103,11 @@ ul {
       background-color: var(--color-white);
       transition: color, background-color ease 0.5s;
     }
+  }
+
+  @include sl {
+    width: 320px;
+    height: 68px;
   }
 }
 
