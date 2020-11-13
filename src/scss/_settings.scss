@@ -83,6 +83,12 @@ picture {
     padding: 0 40px;
     max-width: 1024px;
   }
+
+  @include mob {
+    padding: 0 20px;
+    min-width: 320px;
+    max-width: none;
+  }
 }
 
 .link {
