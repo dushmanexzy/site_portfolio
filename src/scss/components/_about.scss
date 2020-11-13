@@ -9,6 +9,11 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+
+    @include mob {
+      position: relative;
+      flex-direction: column-reverse;
+    }
   }
 
   &__img {
@@ -17,10 +22,21 @@
     @include ll {
       margin-right: 0;
     }
+
+    @include mob {
+      width: 224px;
+      height: 334px;
+    }
   }
 
   @include sl {
     background-image: url("../img/Ellipse_1024.png");
+  }
+
+  @include mob {
+    margin-bottom: 123px;
+    padding-top: 55px;
+    background-image: url("../img/Ellipse_320.png");
   }
 }
 
@@ -43,6 +59,10 @@
       font-size: 54px;
       line-height: normal;
     }
+
+    @include mob {
+      font-size: 30px;
+    }
   }
 
   &__subtitle {
@@ -52,9 +72,26 @@
     font-size: 25px;
     line-height: 54px;
     color: var(--color-bali-hai);
+
+    @include mob {
+      margin-bottom: 24px;
+      max-width: 212px;
+      font-size: 16px;
+      line-height: 22px;
+      text-align: center;
+    }
   }
 
   @include sl {
     padding-top: 180px;
+  }
+
+  @include mob {
+    position: absolute;
+    left: 50%;
+    top: 345px;
+    align-items: center;
+    padding-top: 0;
+    transform: translateX(-50%);
   }
 }

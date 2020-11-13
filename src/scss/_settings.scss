@@ -119,6 +119,12 @@ picture {
     width: 320px;
     height: 68px;
   }
+
+  @include mob {
+    width: 280px;
+    height: 55px;
+    font-size: 16px;
+  }
 }
 
 .section-title {
@@ -128,6 +134,11 @@ picture {
   line-height: 59.73px;
   text-align: center;
   color: var(--color-mine-shaft);
+
+  @include mob {
+    font-weight: 900;
+    font-size: 30px;
+  }
 }
 
 .js-focus-visible :focus:not(.focus-visible) {
