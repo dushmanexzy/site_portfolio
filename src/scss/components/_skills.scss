@@ -11,26 +11,59 @@
 
   &__title {
     margin-bottom: 90px;
+
+    @include mob {
+      margin-bottom: 30px;
+    }
   }
 
   @include mob {
-    padding-top: 30px;
+    padding-top: 32px;
+    padding-bottom: 50px;
   }
 }
 
 .services {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 95px;
+  margin-bottom: 92px;
   width: 100%;
 
   &__item {
+    margin-right: 5.4%;
     margin-bottom: 75px;
     text-align: center;
 
     &:nth-last-child(-n + 4) {
       margin-bottom: 0;
+
+      @include sl {
+        margin-bottom: 76px;
+      }
+
+      @include mob {
+        margin-bottom: 47px;
+      }
+    }
+
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+
+      @include mob {
+        margin-bottom: 47px;
+      }
+    }
+
+    &:nth-last-child(-n + 1) {
+      margin-bottom: 0;
+    }
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+
+    &:nth-child(2n) {
+      margin-right: 0;
     }
 
     &--layout {
@@ -43,10 +76,11 @@
         width: 80px;
         height: 74px;
         background: url("../img/layout.png") no-repeat;
+        background-size: cover;
 
         @include mob {
           width: 61px;
-          height: 61px;
+          height: 56px;
           background-image: url("../img/layout_mob.png");
         }
       }
@@ -62,9 +96,10 @@
         width: 79px;
         height: 74px;
         background: url("../img/adaptive.png") no-repeat center;
+        background-size: cover;
 
         @include mob {
-          width: 61px;
+          width: 66px;
           height: 61px;
           background-image: url("../img/adaptive_mob.png");
         }
@@ -81,12 +116,17 @@
         width: 79px;
         height: 74px;
         background: url("../img/code.png") no-repeat center;
+        background-size: cover;
 
         @include mob {
           width: 61px;
           height: 61px;
           background-image: url("../img/code_mob.png");
         }
+      }
+
+      @include sl {
+        width: 258px;
       }
     }
 
@@ -100,6 +140,7 @@
         width: 79px;
         height: 74px;
         background: url("../img/test.png") no-repeat center;
+        background-size: cover;
 
         @include mob {
           width: 61px;
@@ -107,10 +148,14 @@
           background-image: url("../img/test_mob.png");
         }
       }
+
+      @include sl {
+        width: 272px;
+      }
     }
 
     @include sl {
-      width: 42%;
+      margin-right: 0;
     }
 
     @include mob {
@@ -120,7 +165,7 @@
 
   &__text {
     margin: 0;
-    margin-top: 15px;
+    margin-top: 18px;
     font-weight: 400;
     font-size: 20px;
     line-height: 30px;
@@ -128,13 +173,15 @@
     color: var(--color-bali-hai);
 
     @include mob {
+      margin-top: 15px;
       font-size: 16px;
+      line-height: 24px;
     }
   }
 
   @include sl {
     justify-content: space-between;
-    margin-bottom: 93px;
+    margin-bottom: 95px;
     max-width: 650px;
   }
 
@@ -142,5 +189,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    margin-bottom: 50px;
   }
 }
