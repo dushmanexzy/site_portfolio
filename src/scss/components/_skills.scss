@@ -26,47 +26,11 @@
   width: 100%;
 
   &__item {
-    margin-right: 4.92%;
     margin-bottom: 75px;
     text-align: center;
 
-    &:not(:last-child) {
-      margin-right: 0;
-      margin-bottom: 20px;
-    }
-
     &:nth-last-child(-n + 4) {
       margin-bottom: 0;
-
-      @include sl {
-        margin-bottom: 75px;
-      }
-
-      @include mob {
-        margin-bottom: 0;
-      }
-    }
-
-    &:nth-last-child(-n + 2) {
-      margin-bottom: 0;
-    }
-
-    &:nth-child(4n) {
-      margin-right: 0;
-
-      @include sl {
-        margin-right: 4.92%;
-      }
-
-      @include mob {
-        margin-right: 0;
-      }
-    }
-
-    &:nth-child(2n) {
-      @include sl {
-        margin-right: 0;
-      }
     }
 
     &--layout {
