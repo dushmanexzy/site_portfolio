@@ -10,7 +10,7 @@
   }
 }
 
-@mixin ll { // laptop L
+@mixin ll { // laptop Large
   @media (max-width: (1440px)) {
     @content;
   }
