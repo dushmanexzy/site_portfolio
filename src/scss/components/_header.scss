@@ -1,6 +1,10 @@
 .header {
   background-color: var(--color-alabaster);
 
+  &__nav {
+    margin-right: auto;
+  }
+
   &__container {
     display: flex;
     align-items: center;
@@ -18,17 +22,12 @@
 
   @include sl {
     display: block;
+    margin-right: auto;
   }
 }
 
-.call {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .call-tel {
-  margin-right: 30px;
+  margin-right: 17px;
   font-weight: 700;
   font-size: 25px;
   line-height: 54px;
