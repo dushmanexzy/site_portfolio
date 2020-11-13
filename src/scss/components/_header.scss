@@ -1,4 +1,6 @@
 .header {
+  padding-top: 25px;
+  padding-bottom: 25px;
   background-color: var(--color-alabaster);
 
   &__nav {
@@ -9,8 +11,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 25px;
-    padding-bottom: 25px;
+  }
+
+  @include mob {
+    padding-top: 13px;
+    padding-bottom: 13px;
   }
 }
 
@@ -23,6 +28,13 @@
   @include sl {
     display: block;
     margin-right: auto;
+  }
+
+  @include mob {
+    margin-right: 0;
+    width: 24px;
+    height: 18px;
+    background-image: url("../img/burger_mobile.png");
   }
 }
 
@@ -37,5 +49,49 @@
   &:active {
     font-size: 30px;
     transition: font 0.3s ease;
+  }
+
+  @include mob {
+    margin-right: 0;
+    font-size: 18px;
+  }
+}
+
+.call-btn {
+  border: 1px solid var(--color-radical-red);
+  width: 207px;
+  height: 45px;
+  font-size: 16px;
+  color: var(--color-sunset-orange);
+  transition: all ease-in 0.3s;
+
+  &:hover,
+  &:active {
+    border-width: 2px;
+    font-size: 20px;
+    transition: all ease-in 0.3s;
+  }
+
+  &:disabled {
+    border: 2px solid rgb(0, 0, 0);
+    color: var(--color-white);
+    background-color: rgb(160, 157, 157);
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  @include mob {
+    display: none;
+  }
+}
+
+.call-icon {
+  display: none;
+
+  @include mob {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background-image: url("../img/call-icon.png");
   }
 }
