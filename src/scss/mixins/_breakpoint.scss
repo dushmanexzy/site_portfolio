@@ -16,8 +16,14 @@
   }
 }
 
-@mixin sl {
+@mixin sl { // Small laptop
   @media (max-width: (1200px)) {
+    @content;
+  }
+}
+
+@mixin mob {
+  @media (max-width: (1023px)) {
     @content;
   }
 }
