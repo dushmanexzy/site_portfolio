@@ -43,7 +43,7 @@ const resources = () => {
 }
 
 const imgToApp = () => {
-	return src(['./src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg', './src/img/*.svg'])
+	return src(['./src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg', './src/img/*.svg', './src/img/*.webp'])
     .pipe(dest('./app/img'))
 }
 
