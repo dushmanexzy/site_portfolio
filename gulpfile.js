@@ -232,7 +232,7 @@ exports.default = series(clean, parallel(htmlInclude, scripts, woffFonts, woff2F
 
 // BUILD
 const tinypng = () => {
-  return src(['./src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg'])
+  return src(['./src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg', './src/img/**.webp'])
     .pipe(tiny({
       key: 'HkdjDW01hVL5Db6HXSYlnHMk9HCvQfDT',
       sigFile: './app/img/.tinypng-sigs',
