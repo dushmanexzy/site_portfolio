@@ -1,4 +1,78 @@
+// Keyframes for flying tags in cost section
+// stylelint-disable no-unknown-animations
+
+@include keyframes(cost-brases--one) {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    left: -832px;
+    top: 68px;
+    transform: rotate(25deg);
+  }
+}
+
+@include keyframes(cost-brases--two) {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    left: 808px;
+    top: 265px;
+    transform: rotate(-15deg);
+  }
+}
+
+@include keyframes(cost-div--two) {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    left: 464px;
+    top: 304px;
+    transform: rotate(22deg);
+  }
+}
+
+@include keyframes(cost-lattice) {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    left: -714px;
+    top: 260px;
+    transform: rotate(15deg);
+  }
+}
+
+@include keyframes(cost-end-tag) {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    left: 698px;
+    top: 78px;
+    transform: rotate(-20deg);
+  }
+}
+
 .cost {
+  position: relative;
   padding-top: 72px;
   padding-bottom: 80px;
   background-image:
@@ -64,6 +138,40 @@
       max-width: 100%;
       font-size: 15px;
     }
+  }
+
+  .tag {
+    color: var(--color-white);
+  }
+
+  .brases {
+    &--one {
+      display: block;
+      animation: cost-brases--one 2s ease-in-out forwards;
+    }
+
+    &--two {
+      display: block;
+      animation: cost-brases--two 2s ease-in-out forwards;
+    }
+  }
+
+  .div {
+    &--one {
+      display: none;
+    }
+
+    &--two {
+      animation: cost-div--two 2s ease-in-out forwards;
+    }
+  }
+
+  .lattice {
+    animation: cost-lattice 2s ease-in-out forwards;
+  }
+
+  .end-tag {
+    animation: cost-end-tag 2s ease-in-out forwards;
   }
 
   @include mob {
