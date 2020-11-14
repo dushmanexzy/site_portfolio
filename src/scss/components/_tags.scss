@@ -1,0 +1,170 @@
+// Keyframes for tags animation
+// stylelint-disable no-unknown-animations
+
+@include keyframes(brases--one) {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    left: -830px;
+    top: 40px;
+    transform: rotate(25deg);
+  }
+}
+
+@include keyframes(brases--two) {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    left: -8px;
+    top: 414px;
+    transform: rotate(22deg);
+  }
+}
+
+@include keyframes(div--one) {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    left: -171px;
+    top: 60px;
+    transform: rotate(-15deg);
+  }
+}
+
+@include keyframes(div--two) {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    left: -8px;
+    top: 440px;
+    transform: rotate(22deg);
+  }
+}
+
+@include keyframes(lattice) {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    left: -714px;
+    top: 270px;
+    transform: rotate(15deg);
+  }
+}
+
+@include keyframes(end-tag) {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    left: -584px;
+    top: 568px;
+    transform: rotate(-23deg);
+  }
+}
+
+// @include keyframes(end-tag) {
+//   0% {
+//     left: 0;
+//     top: 0;
+//     transform: rotate(0);
+//   }
+
+//   100% {
+//     left: -87px;
+//     top: 90px;
+//     transform: rotate(15deg);
+//   }
+// }
+
+.tags {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  max-width: 1920px;
+  transform: translateX(-50%);
+}
+
+.tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  line-height: 38.97px;
+  color: rgba(255, 255, 255, 0);
+  background-image:
+    linear-gradient(
+      to top,
+      #f26522 0%,
+      #fa0891 99%,
+      #fa0891 100%
+    );
+  background-clip: text;
+  transform: translateX(-50%);
+}
+
+.brases {
+  &--one {
+    width: 45px;
+    height: 50px;
+    font-size: 43px;
+    animation: brases--one 2s ease-in-out forwards;
+  }
+
+  &--two {
+    display: none;
+    font-size: 48px;
+  }
+}
+
+.div {
+  &--one {
+    width: 68px;
+    height: 35px;
+    font-size: 29px;
+    animation: div--one 2s ease-in-out forwards;
+  }
+
+  &--two {
+    width: 83px;
+    height: 40px;
+    font-size: 35px;
+    animation: div--two 2s ease-in-out forwards;
+  }
+}
+
+.lattice {
+  width: 35px;
+  height: 42px;
+  font-size: 55px;
+  animation: lattice 2s ease-in-out forwards;
+}
+
+.end-tag {
+  width: 53px;
+  height: 36px;
+  font-size: 38px;
+  animation: end-tag 2s ease-in-out forwards;
+}
