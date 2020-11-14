@@ -1,14 +1,16 @@
 .footer {
+  padding-top: 82px;
+
   &__container {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding-top: 82px;
     padding-right: 36px;
     padding-bottom: 77px;
 
-    @include sl {
-      padding-top: 104px;
+    @include mob {
+      flex-direction: column;
+      padding-bottom: 47px;
     }
   }
 
@@ -25,6 +27,10 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+
+    @include mob {
+      margin-bottom: 42px;
+    }
   }
 
   .nav__item {
@@ -32,6 +38,10 @@
 
     &:not(:last-child) {
       margin-bottom: 12px;
+
+      @include mob {
+        margin-bottom: 15px;
+      }
     }
   }
 
@@ -39,11 +49,28 @@
     font-size: 18px;
     line-height: normal;
     color: var(--color-bali-hai);
+
+    @include mob {
+      font-size: 15px;
+    }
   }
 
   &__copyright {
     padding-top: 10px;
     padding-bottom: 12px;
+
+    @include mob {
+      padding-top: 15px;
+      padding-bottom: 17px;
+    }
+  }
+
+  @include sl {
+    padding-top: 104px;
+  }
+
+  @include mob {
+    padding-top: 46px;
   }
 }
 
@@ -65,6 +92,10 @@
 
     &:not(:last-child) {
       margin-bottom: 30px;
+
+      @include mob {
+        margin-bottom: 22px;
+      }
     }
 
     &:hover,
@@ -76,16 +107,34 @@
     &--phone::before {
       content: url("../img/call-answer.png");
       margin-right: 20px;
+
+      @include mob {
+        content: url("../img/call-answer__320.png");
+      }
     }
 
     &--mail::before {
       content: url("../img/mail.png");
       margin-right: 20px;
+
+      @include mob {
+        content: url("../img/mail__320.png");
+      }
+    }
+
+    @include mob {
+      font-weight: 500;
+      font-size: 20px;
+      color: var(--color-bali-hai);
     }
   }
 
   @include sl {
     margin-right: 0;
+  }
+
+  @include mob {
+    margin-bottom: 29px;
   }
 }
 
@@ -117,6 +166,18 @@
       opacity: 0.2;
       pointer-events: none;
     }
+
+    @include mob {
+      display: block;
+      margin-bottom: 50px;
+      width: 280px;
+      height: 55px;
+    }
+  }
+
+  @include mob {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -182,5 +243,10 @@
     font-size: 16px;
     line-height: 59.73px;
     color: var(--color-white);
+
+    @include mob {
+      font-size: 12px;
+      line-height: normal;
+    }
   }
 }
