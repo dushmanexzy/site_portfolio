@@ -4,8 +4,6 @@ import vars from '../_vars';
 Swiper.use([Navigation, Pagination]);
 
 const worksSlider = new Swiper(vars.$worksSlider, {
-  spaceBetween: 36,
-  slidesPerView: 2,
   loop: true,
 
   navigation: {
@@ -19,6 +17,14 @@ const worksSlider = new Swiper(vars.$worksSlider, {
   },
 
   breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    1023: {
+      slidesPerView: 2,
+      spaceBetween: 36,
+    },
     1200: {
       slidesPerView: 3,
       spaceBetween: 30,

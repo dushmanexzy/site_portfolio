@@ -9,10 +9,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+
+    @include mob {
+      width: 320px;
+    }
   }
 
   &__title {
     margin-bottom: 104px;
+
+    @include mob {
+      margin-bottom: 40px;
+    }
   }
 
   &__content {
@@ -34,6 +42,17 @@
       font-size: 25px;
       line-height: 40.73px;
     }
+
+    @include mob {
+      padding-left: 0;
+      font-size: 18px;
+      line-height: normal;
+    }
+  }
+
+  @include mob {
+    padding-top: 42px;
+    padding-bottom: 52px;
   }
 }
 
@@ -46,6 +65,10 @@
 
   @include sl {
     margin-bottom: 212px;
+  }
+
+  @include mob {
+    margin-bottom: 82px;
   }
 }
 
@@ -63,10 +86,20 @@
     &-active {
       background-color: var(--color-red-orange);
     }
+
+    @include mob {
+      margin: 0 8px;
+      width: 10px;
+      height: 10px;
+    }
   }
 
   @include sl {
     display: block;
+  }
+
+  @include mob {
+    bottom: 100px;
   }
 }
 
