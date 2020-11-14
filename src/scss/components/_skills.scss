@@ -63,7 +63,9 @@
     }
 
     &:nth-child(2n) {
-      margin-right: 0;
+      @include mob {
+        margin-right: 0;
+      }
     }
 
     &--layout {
@@ -93,7 +95,7 @@
         content: "";
         display: block;
         margin: 0 auto;
-        width: 79px;
+        width: 78px;
         height: 74px;
         background: url("../img/adaptive.png") no-repeat center;
         background-size: cover;
@@ -113,7 +115,7 @@
         content: "";
         display: block;
         margin: 0 auto;
-        width: 79px;
+        width: 76px;
         height: 74px;
         background: url("../img/code.png") no-repeat center;
         background-size: cover;
@@ -137,7 +139,7 @@
         content: "";
         display: block;
         margin: 0 auto;
-        width: 79px;
+        width: 75px;
         height: 74px;
         background: url("../img/test.png") no-repeat center;
         background-size: cover;
@@ -173,7 +175,9 @@
     color: var(--color-bali-hai);
 
     @include mob {
+      margin: 0 auto;
       margin-top: 15px;
+      max-width: 206px;
       font-size: 16px;
       line-height: 24px;
     }
