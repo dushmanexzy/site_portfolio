@@ -51,6 +51,10 @@
     }
   }
 
+  @include sl {
+    padding-bottom: 101px;
+  }
+
   @include mob {
     padding-top: 42px;
     padding-bottom: 52px;
