@@ -127,6 +127,12 @@
         }
       }
 
+      .services__text {
+        @include mob {
+          max-width: 180px;
+        }
+      }
+
       @include sl {
         width: 258px;
       }
@@ -177,7 +183,7 @@
     @include mob {
       margin: 0 auto;
       margin-top: 15px;
-      max-width: 206px;
+      max-width: 217px;
       font-size: 16px;
       line-height: 24px;
     }
