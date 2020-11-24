@@ -149,11 +149,33 @@
     &--one {
       display: block;
       animation: cost-brases--one 2s ease-in-out forwards;
+
+      @include sl {
+        font-size: 29px;
+
+        @include keyframes(cost-brases--one) {
+          0% {
+            left: 0;
+            top: 0;
+            transform: rotate(0);
+          }
+
+          100% {
+            left: -358px;
+            top: 22px;
+            transform: rotate(25deg);
+          }
+        }
+      }
     }
 
     &--two {
       display: block;
       animation: cost-brases--two 2s ease-in-out forwards;
+
+      @include sl {
+        display: none;
+      }
     }
   }
 
@@ -164,15 +186,53 @@
 
     &--two {
       animation: cost-div--two 2s ease-in-out forwards;
+
+      @include sl {
+        font-size: 23px;
+
+        @include keyframes(cost-div--two) {
+          0% {
+            left: -0;
+            top: 0;
+            transform: rotate(0);
+          }
+
+          100% {
+            left: 0;
+            top: 304px;
+            transform: rotate(22deg);
+          }
+        }
+      }
     }
   }
 
   .lattice {
     animation: cost-lattice 2s ease-in-out forwards;
+
+    @include sl {
+      display: none;
+    }
   }
 
-  .end-tag {
+  .end-tag--one {
     animation: cost-end-tag 2s ease-in-out forwards;
+
+    @include sl {
+      @include keyframes(cost-end-tag) {
+        0% {
+          left: 0;
+          top: 0;
+          transform: rotate(0);
+        }
+
+        100% {
+          left: 364px;
+          top: 290px;
+          transform: rotate(-22deg);
+        }
+      }
+    }
   }
 
   @include mob {
