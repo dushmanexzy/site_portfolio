@@ -18,12 +18,27 @@
       <a href="" class="about__link btn-reset link link--fill">Узнать больше</a>
     </div>
 
-    <img
-      src="img/main-photo.webp"
-      alt="Парень с бородой в наушниках на шее и в клетчатой рубашке, фото по пояс"
-      width="435"
-      height="637"
-      class="about__img"
-    />
+    <picture class="about__photo main-photo">
+      <!-- webp -->
+      <source
+        media="(max-width: 1023px)"
+        type="image/webp"
+        srcset="img/main-photo__320.webp 1x, img/main-photo__320@2x.webp 2x"
+      />
+      <source
+        type="image/webp"
+        srcset="img/main-photo.webp 1x, img/main-photo@2x.webp 2x"
+      />
+      <!-- png -->
+      <source
+        media="(max-width: 1200px)"
+        srcset="img/main-photo__320.png 1x, img/main-photo__320@2x.png 2x"
+      />
+      <img
+        src="img/main-photo.png"
+        alt="Парень с бородой в наушниках на шее и в клетчатой рубашке, фото по пояс"
+        srcset="img/main-photo@2x.png 2x"
+      />
+    </picture>
   </div>
 </section>
