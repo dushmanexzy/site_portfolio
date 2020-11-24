@@ -141,6 +141,12 @@
     }
   }
 
+  .tags {
+    @include mob {
+      display: none;
+    }
+  }
+
   .tag {
     color: var(--color-white);
   }
