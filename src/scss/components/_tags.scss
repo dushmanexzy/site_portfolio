@@ -1,7 +1,7 @@
 // Keyframes for tags animation
 // stylelint-disable no-unknown-animations
 
-@include keyframes(brases--one) {
+@include keyframes(brases) {
   0% {
     left: 0;
     top: 0;
@@ -12,20 +12,6 @@
     left: -830px;
     top: 40px;
     transform: rotate(25deg);
-  }
-}
-
-@include keyframes(brases--two) {
-  0% {
-    left: 0;
-    top: 0;
-    transform: rotate(0);
-  }
-
-  100% {
-    left: -8px;
-    top: 414px;
-    transform: rotate(22deg);
   }
 }
 
@@ -126,34 +112,45 @@
 }
 
 .brases {
-  &--one {
-    width: 45px;
-    height: 50px;
-    font-size: 43px;
-    animation: brases--one 2s ease-in-out forwards;
+  width: 45px;
+  height: 50px;
+  font-size: 43px;
+  animation: brases 2s ease-in-out forwards;
 
-    @include sl {
-      @include keyframes(brases--one) {
-        0% {
-          left: -0;
-          top: 0;
-          transform: rotate(0);
-        }
+  @include sl {
+    @include keyframes(brases) {
+      0% {
+        left: -0;
+        top: 0;
+        transform: rotate(0);
+      }
 
-        100% {
-          left: -435px;
-          top: 60px;
-          transform: rotate(25deg);
-        }
+      100% {
+        left: -435px;
+        top: 60px;
+        transform: rotate(25deg);
       }
     }
   }
 
-  &--two {
-    display: none;
-    width: 44px;
-    height: 51px;
-    font-size: 48px;
+  @include mob {
+    width: 26px;
+    height: 30px;
+    font-size: 22px;
+
+    @include keyframes(brases) {
+      0% {
+        left: -0;
+        top: 0;
+        transform: rotate(0);
+      }
+
+      100% {
+        left: -108px;
+        top: -38px;
+        transform: rotate(25deg);
+      }
+    }
   }
 }
 
@@ -167,7 +164,7 @@
     @include sl {
       @include keyframes(div--one) {
         0% {
-          left: -0;
+          left: 0;
           top: 0;
           transform: rotate(0);
         }
@@ -178,6 +175,10 @@
           transform: rotate(-15deg);
         }
       }
+    }
+
+    @include mob {
+      display: none;
     }
   }
 
@@ -202,6 +203,26 @@
         }
       }
     }
+
+    @include mob {
+      width: 40px;
+      height: 25px;
+      font-size: 14px;
+
+      @include keyframes(div--two) {
+        0% {
+          left: 0;
+          top: 0;
+          transform: rotate(0);
+        }
+
+        100% {
+          left: 88px;
+          top: 2px;
+          transform: rotate(20deg);
+        }
+      }
+    }
   }
 }
 
@@ -222,6 +243,26 @@
       100% {
         left: -454px;
         top: 538px;
+        transform: rotate(15deg);
+      }
+    }
+  }
+
+  @include mob {
+    width: 18px;
+    height: 30px;
+    font-size: 28px;
+
+    @include keyframes(lattice) {
+      0% {
+        left: -0;
+        top: 0;
+        transform: rotate(0);
+      }
+
+      100% {
+        left: -122px;
+        top: 66px;
         transform: rotate(15deg);
       }
     }
@@ -250,6 +291,26 @@
         }
       }
     }
+
+    @include mob {
+      width: 23px;
+      height: 30px;
+      font-size: 16px;
+
+      @include keyframes(end-tag--one) {
+        0% {
+          left: -0;
+          top: 0;
+          transform: rotate(0);
+        }
+
+        100% {
+          left: 13px;
+          top: -60px;
+          transform: rotate(-34deg);
+        }
+      }
+    }
   }
 
   &--two {
@@ -263,6 +324,10 @@
       @include keyframes(end-tag--two);
 
       display: block;
+    }
+
+    @include mob {
+      display: none;
     }
   }
 }
