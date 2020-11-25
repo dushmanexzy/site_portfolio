@@ -32,13 +32,14 @@
 <body>
 	<div class="site-container">
     @include('html/header.html')
-    <main class="main-content">
+    <main class="main-content js-main-content" aria-hidden="false">
       @include('html/about.html')
       @include('html/skills.html')
       @include('html/works.html')
       @include('html/cost.html')
     </main>
-		@include('html/footer.html')
+    @include('html/footer.html')
+    @include('html/modal.html')
 		<!-- @include('html/h1.html') пример инклуда -->
 	</div>
 	<script src="js/main.js"></script>
