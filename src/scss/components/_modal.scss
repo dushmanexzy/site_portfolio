@@ -19,10 +19,14 @@
     padding-bottom: 10px;
     width: 100%;
     text-align: center;
+
+    @include mob {
+      font-size: 14px;
+    }
   }
 
   &__form {
-    padding: 30px;
+    padding: 30px 0;
   }
 
   &__label {
@@ -36,6 +40,10 @@
     &:not(:last-child) {
       margin-bottom: 15px;
     }
+
+    @include sl {
+      font-size: 14px;
+    }
   }
 
   &__container {
@@ -44,6 +52,14 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: 0 60px;
+
+    @include sl {
+      padding: 0 25px;
+    }
+
+    @include mob {
+      padding: 0 10px;
+    }
   }
 
   &__buttons {
@@ -57,18 +73,40 @@
     position: absolute;
     right: 1.5%;
     top: 5%;
+    width: 48px;
+    height: 48px;
+    background: url("../img/close.png") no-repeat center;
+    background-size: cover;
+
+    @include mob {
+      top: 1.5%;
+      width: 30px;
+      height: 30px;
+      background-image: url("../img/close_320.png");
+    }
   }
 
   &__submit,
   &__cancel {
     border-radius: 5px;
-    width: 200px;
+    width: 150px;
     height: 40px;
+
+    @include sl {
+      width: 140px;
+      font-size: 14px;
+    }
+  }
+
+  @include mob {
+    width: 320px;
   }
 }
 
 .modal-form {
   &__input {
+    border: none;
+    border-bottom: 2px solid var(--color-black);
     padding: 5px 10px;
     width: 80%;
     font-weight: 400;
@@ -76,6 +114,15 @@
 
     &:focus {
       outline-color: var(--color-red-orange);
+    }
+
+    @include sl {
+      width: 70%;
+      font-size: 14px;
+    }
+
+    @include mob {
+      width: 60%;
     }
   }
 }
