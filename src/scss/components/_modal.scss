@@ -2,10 +2,7 @@
   position: fixed;
   left: 50%;
   top: 50%;
-  z-index: 100;
-
-  // display: none;
-
+  z-index: 1000;
   border: 5px solid var(--color-wild-watermelon);
   padding: 10px 40px;
   width: 50%;
@@ -151,9 +148,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-
-  // display: none;
-
+  z-index: 100;
   background-color: var(--color-black);
   opacity: 0.5;
 }

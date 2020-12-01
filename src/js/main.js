@@ -1,6 +1,7 @@
 // import './vendor/focus-visible.min.js';
 import vars from './_vars';
 import './components/slider';
+import './components/modal';
 import {scrollTo} from './functions/smooth-scroll';
 // import {resizeContent} from './functions/resize';
 // import {disableScroll, enableScroll} from './functions/stop-scroll';

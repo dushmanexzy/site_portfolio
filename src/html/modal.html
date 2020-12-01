@@ -1,5 +1,5 @@
 <div
-  class="modal js-modal"
+  class="modal js-modal is-hidden"
   aria-modal="true"
   aria-hidden="true"
   aria-labelledby="modalTitle"
@@ -19,6 +19,7 @@
           name="firstName"
           id="firstName"
           placeholder="ФИО"
+          required
         />
       </label>
       <!-- email -->
@@ -30,6 +31,7 @@
           name="email"
           id="email"
           placeholder="example@test.ru"
+          required
         />
       </label>
       <!-- phone -->
@@ -41,6 +43,7 @@
           name="tel"
           id="tel"
           placeholder="+7(999)-555-55-55"
+          required
         />
       </label>
 
@@ -62,9 +65,9 @@
   </form>
 
   <button
-    class="modal__close modal-close btn-reset js-form-close"
+    class="modal__close modal-close btn-reset js-modal-close"
     aria-label="Закрыть форму"
   ></button>
 </div>
 
-<div class="modal-overlay js-modalOverlay"></div>
+<div class="modal-overlay is-hidden js-modal-overlay"></div>
