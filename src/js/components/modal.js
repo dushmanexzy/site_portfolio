@@ -36,3 +36,11 @@ vars.$closeModalBtn.addEventListener('click', () => {
 vars.$cancelFormBtn.addEventListener('click', () => {
   hideModal();
 });
+
+vars.$document.addEventListener('keyup', (e) => {
+  e.preventDefault();
+
+  if (e.key === 'Escape') {
+    hideModal();
+  }
+})
