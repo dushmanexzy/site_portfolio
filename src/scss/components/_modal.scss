@@ -14,19 +14,29 @@
 
   &__title {
     margin: 0;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     border-bottom: 2px solid var(--color-shark);
     padding-bottom: 10px;
     width: 100%;
+    font-size: 35px;
     text-align: center;
 
+    @include sl {
+      font-size: 28px;
+    }
+
     @include mob {
-      font-size: 14px;
+      margin-bottom: 20px;
+      font-size: 20px;
     }
   }
 
   &__form {
-    padding: 30px 0;
+    padding: 60px 0;
+
+    @include sl {
+      padding: 40px 0;
+    }
   }
 
   &__label {
@@ -38,11 +48,17 @@
     font-size: 20px;
 
     &:not(:last-child) {
-      margin-bottom: 15px;
+      margin-bottom: 40px;
+
+      @include mob {
+        margin-bottom: 20px;
+      }
     }
 
-    @include sl {
-      font-size: 14px;
+    @include mob {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 18px;
     }
   }
 
@@ -89,11 +105,12 @@
   &__submit,
   &__cancel {
     border-radius: 5px;
-    width: 150px;
-    height: 40px;
+    width: 160px;
+    height: 60px;
 
     @include sl {
       width: 140px;
+      height: 40px;
       font-size: 14px;
     }
   }
@@ -117,12 +134,13 @@
     }
 
     @include sl {
-      width: 70%;
-      font-size: 14px;
+      width: 62%;
+      font-size: 16px;
     }
 
     @include mob {
-      width: 60%;
+      margin-top: 5px;
+      width: 100%;
     }
   }
 }
