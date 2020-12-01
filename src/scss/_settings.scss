@@ -106,11 +106,17 @@ picture {
     background-color: var(--color-red-orange);
     transition: color, background-color ease 0.5s;
 
-    &:hover,
-    &:active {
+    &:hover {
       border: 3px solid var(--color-black);
       color: var(--color-black);
       background-color: var(--color-white);
+      transition: color, background-color ease 0.5s;
+    }
+
+    &:active {
+      border: 3px solid var(--color-black);
+      color: var(--color-black);
+      background-color: var(--color-bali-hai);
       transition: color, background-color ease 0.5s;
     }
   }
