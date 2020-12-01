@@ -5,7 +5,7 @@
   z-index: 1000;
   border: 5px solid var(--color-wild-watermelon);
   padding: 10px 40px;
-  width: 50%;
+  width: 46%;
   background-color: var(--color-white);
   transform: translate(-50%, -50%);
 
@@ -126,7 +126,7 @@
     border: none;
     border-bottom: 2px solid var(--color-black);
     padding: 5px 10px;
-    width: 80%;
+    width: 70%;
     font-weight: 400;
     font-size: 16px;
 
@@ -134,14 +134,14 @@
       outline-color: var(--color-red-orange);
     }
 
-    @include sl {
-      width: 62%;
-      font-size: 16px;
-    }
-
     @include mob {
       margin-top: 5px;
       width: 100%;
+    }
+
+    @media (max-width: 1440px) {
+      width: 60%;
+      font-size: 16px;
     }
   }
 }
