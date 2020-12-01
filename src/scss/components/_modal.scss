@@ -110,6 +110,10 @@
       height: 40px;
       font-size: 14px;
     }
+
+    @include mob {
+      width: 100px;
+    }
   }
 
   @include mob {
