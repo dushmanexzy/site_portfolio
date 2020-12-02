@@ -2,6 +2,12 @@ import vars from '../_vars';
 
 'use strict';
 
+const cleaningModalInputArea = () => {
+  vars.$modalInputArea.forEach(input => {
+    input.value = '';
+  });
+}
+
 const showModal = () => {
   vars.$modal.classList.remove('is-hidden');
   vars.$modal.setAttribute('aria-hidden', false);
@@ -27,14 +33,17 @@ vars.$openModalBtns.forEach(btn => {
 // hide modal window
 vars.$modalOverlay.addEventListener('click', () => {
   hideModal();
+  cleaningModalInputArea();
 });
 
 vars.$closeModalBtn.addEventListener('click', () => {
   hideModal();
+  cleaningModalInputArea();
 });
 
 vars.$cancelFormBtn.addEventListener('click', () => {
   hideModal();
+  cleaningModalInputArea();
 });
 
 vars.$document.addEventListener('keyup', (e) => {
@@ -42,5 +51,6 @@ vars.$document.addEventListener('keyup', (e) => {
 
   if (e.key === 'Escape') {
     hideModal();
+    cleaningModalInputArea();
   }
 })

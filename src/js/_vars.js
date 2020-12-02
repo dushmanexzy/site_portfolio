@@ -9,6 +9,7 @@ export default {
   $modal: document.querySelector('.js-modal'),
   $modalOverlay: document.querySelector('.js-modal-overlay'),
   $openModalBtns: document.querySelectorAll('.js-open-modal'),
+  $modalInputArea: document.querySelectorAll('.js-modal-input'),
   $closeModalBtn: document.querySelector('.js-modal-close'),
   $cancelFormBtn: document.querySelector('.js-form-cancel'),
   $toggleNavBtn: document.querySelector('.js-nav-btn'),
