@@ -1,89 +1,12 @@
 // Keyframes for tags animation
 // stylelint-disable no-unknown-animations
 
-@include keyframes(brases) {
-  0% {
-    left: 0;
-    top: 0;
-    transform: rotate(0);
-  }
-
-  100% {
-    left: -830px;
-    top: 40px;
-    transform: rotate(25deg);
-  }
-}
-
-@include keyframes(div--one) {
-  0% {
-    left: 0;
-    top: 0;
-    transform: rotate(0);
-  }
-
-  100% {
-    left: -171px;
-    top: 60px;
-    transform: rotate(-15deg);
-  }
-}
-
-@include keyframes(div--two) {
-  0% {
-    left: 0;
-    top: 0;
-    transform: rotate(0);
-  }
-
-  100% {
-    left: -8px;
-    top: 440px;
-    transform: rotate(22deg);
-  }
-}
-
-@include keyframes(lattice) {
-  0% {
-    left: 0;
-    top: 0;
-    transform: rotate(0);
-  }
-
-  100% {
-    left: -714px;
-    top: 270px;
-    transform: rotate(15deg);
-  }
-}
-
-@include keyframes(end-tag--one) {
-  0% {
-    left: 0;
-    top: 0;
-    transform: rotate(0);
-  }
-
-  100% {
-    left: -584px;
-    top: 568px;
-    transform: rotate(-23deg);
-  }
-}
-
-@include keyframes(end-tag--two) {
-  0% {
-    left: 0;
-    top: 0;
-    transform: rotate(0);
-  }
-
-  100% {
-    left: -88px;
-    top: 135px;
-    transform: rotate(15deg);
-  }
-}
+@include keyframe(brases, -830px, 40px, 25deg);
+@include keyframe(div--one, -171px, 60px, -15deg);
+@include keyframe(div--two, -8px, 440px, 22deg);
+@include keyframe(lattice, -714px, 270px, 15deg);
+@include keyframe(end-tag--one, -584px, 568px, -23deg);
+@include keyframe(div--one, -170px, 58px, -15deg);
 
 .tags {
   position: absolute;
