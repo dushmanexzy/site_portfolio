@@ -52,7 +52,7 @@ picture {
 .for-mobile {
   display: none;
 
-  @include mobile {
+  @include mob {
     display: block;
   }
 }

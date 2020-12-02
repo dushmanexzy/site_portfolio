@@ -1,4 +1,6 @@
-export const scrollTo = (element) => {
+import vars from '../_vars';
+
+const scrollTo = (element) => {
 	window.scroll({
 		behavior: 'smooth',
 		left: 0,
@@ -6,6 +8,15 @@ export const scrollTo = (element) => {
 	});
 }
 
+vars.$ahchorLinks.forEach((el) => {
+	el.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		let id = e.currentTarget.getAttribute('href');
+
+		scrollTo(document.querySelector(id))
+	});
+})
 
 // usage
 
