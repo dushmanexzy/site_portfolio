@@ -45,10 +45,6 @@ picture {
   overflow: hidden;
 }
 
-// .stop-scroll {
-//   @include stop-scroll;
-// }
-
 .is-hidden {
   display: none !important; // stylelint-disable-line declaration-no-important
 }
@@ -146,8 +142,4 @@ picture {
     font-size: 30px;
     line-height: normal;
   }
-}
-
-.js-focus-visible :focus:not(.focus-visible) {
-  outline: none;
 }
