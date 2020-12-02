@@ -49,6 +49,11 @@
   &:active {
     font-size: 30px;
     transition: font 0.3s ease;
+
+    @include mob {
+      font-size: 18px;
+      transition: none;
+    }
   }
 
   @include mob {
