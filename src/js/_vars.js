@@ -10,4 +10,5 @@ export default {
   $openModalBtns: document.querySelectorAll('.js-open-modal'),
   $closeModalBtn: document.querySelector('.js-modal-close'),
   $cancelFormBtn: document.querySelector('.js-form-cancel'),
+  $toggleNavBtn: document.querySelector('.js-nav-btn'),
 }
