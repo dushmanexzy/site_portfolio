@@ -24,6 +24,7 @@
   .current-link {
     position: relative;
     color: var(--color-wild-watermelon);
+    pointer-events: none;
 
     &::before {
       content: "";
