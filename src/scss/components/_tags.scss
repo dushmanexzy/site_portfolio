@@ -41,39 +41,15 @@
   animation: brases 2s ease-in-out forwards;
 
   @include sl {
-    @include keyframes(brases) {
-      0% {
-        left: -0;
-        top: 0;
-        transform: rotate(0);
-      }
-
-      100% {
-        left: -435px;
-        top: 60px;
-        transform: rotate(25deg);
-      }
-    }
+    @include keyframe(brases, -435px, 60px, 25deg);
   }
 
   @include mob {
+    @include keyframe(brases, -108px, -38px, 25deg);
+
     width: 26px;
     height: 30px;
     font-size: 22px;
-
-    @include keyframes(brases) {
-      0% {
-        left: -0;
-        top: 0;
-        transform: rotate(0);
-      }
-
-      100% {
-        left: -108px;
-        top: -38px;
-        transform: rotate(25deg);
-      }
-    }
   }
 }
 
@@ -85,19 +61,7 @@
     animation: div--one 2s ease-in-out forwards;
 
     @include sl {
-      @include keyframes(div--one) {
-        0% {
-          left: 0;
-          top: 0;
-          transform: rotate(0);
-        }
-
-        100% {
-          left: 375px;
-          top: 42px;
-          transform: rotate(-15deg);
-        }
-      }
+      @include keyframe(div--one, 375px, 42px, -15deg);
     }
 
     @include mob {
@@ -112,39 +76,15 @@
     animation: div--two 2s ease-in-out forwards;
 
     @include sl {
-      @include keyframes(div--two) {
-        0% {
-          left: -0;
-          top: 0;
-          transform: rotate(0);
-        }
-
-        100% {
-          left: 355px;
-          top: 444px;
-          transform: rotate(25deg);
-        }
-      }
+      @include keyframe(div--two, 355px, 444px, 25deg);
     }
 
     @include mob {
+      @include keyframe(div--two, 88px, 2px, 20deg);
+
       width: 40px;
       height: 25px;
       font-size: 14px;
-
-      @include keyframes(div--two) {
-        0% {
-          left: 0;
-          top: 0;
-          transform: rotate(0);
-        }
-
-        100% {
-          left: 88px;
-          top: 2px;
-          transform: rotate(20deg);
-        }
-      }
     }
   }
 }
@@ -156,39 +96,15 @@
   animation: lattice 2s ease-in-out forwards;
 
   @include sl {
-    @include keyframes(lattice) {
-      0% {
-        left: -0;
-        top: 0;
-        transform: rotate(0);
-      }
-
-      100% {
-        left: -454px;
-        top: 538px;
-        transform: rotate(15deg);
-      }
-    }
+    @include keyframe(lattice, -454px, 538px, 15deg);
   }
 
   @include mob {
+    @include keyframe(lattice, -122px, 66px, 15deg);
+
     width: 18px;
     height: 30px;
     font-size: 28px;
-
-    @include keyframes(lattice) {
-      0% {
-        left: -0;
-        top: 0;
-        transform: rotate(0);
-      }
-
-      100% {
-        left: -122px;
-        top: 66px;
-        transform: rotate(15deg);
-      }
-    }
   }
 }
 
@@ -200,39 +116,15 @@
     animation: end-tag--one 2s ease-in-out forwards;
 
     @include sl {
-      @include keyframes(end-tag--one) {
-        0% {
-          left: -0;
-          top: 0;
-          transform: rotate(0);
-        }
-
-        100% {
-          left: -152px;
-          top: 483px;
-          transform: rotate(-22deg);
-        }
-      }
+      @include keyframe(end-tag--one, -152px, 483px, -22deg);
     }
 
     @include mob {
+      @include keyframe(end-tag--one, 13px, -60px, -34deg);
+
       width: 23px;
       height: 30px;
       font-size: 16px;
-
-      @include keyframes(end-tag--one) {
-        0% {
-          left: -0;
-          top: 0;
-          transform: rotate(0);
-        }
-
-        100% {
-          left: 13px;
-          top: -60px;
-          transform: rotate(-34deg);
-        }
-      }
     }
   }
 
@@ -244,7 +136,7 @@
     animation: end-tag--two 2s ease-in-out forwards;
 
     @include sl {
-      @include keyframes(end-tag--two);
+      @include keyframe(end-tag--two, -88px, 135px, 15deg);
 
       display: block;
     }
