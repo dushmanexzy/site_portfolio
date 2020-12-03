@@ -95,20 +95,20 @@ picture {
   &--fill {
     font-size: 18px;
     background-color: var(--color-red-orange);
-    transition: color, background-color ease 0.5s;
+    transition: color, background-color ease 0.3s;
 
     &:hover {
       border: 3px solid var(--color-black);
       color: var(--color-black);
       background-color: var(--color-white);
-      transition: color, background-color ease 0.5s;
+      transition: color, background-color ease 0.3s;
     }
 
     &:active {
       border: 3px solid var(--color-black);
       color: var(--color-black);
       background-color: var(--color-bali-hai);
-      transition: color, background-color ease 0.5s;
+      transition: color, background-color ease 0.3s;
     }
   }
 
