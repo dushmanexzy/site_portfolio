@@ -17,6 +17,7 @@
   &__nav {
     display: inline-flex;
     margin-right: 305px;
+    max-width: 250px;
 
     @include sl {
       margin-right: 48px;
