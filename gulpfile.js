@@ -1,42 +1,24 @@
 const {src, dest, parallel, series, watch} = require('gulp');
-const autoprefixer = require('gulp-autoprefixer');
-const cleanCSS = require('gulp-clean-css');
-const uglify = require('gulp-uglify-es').default;
-const del = require('del');
-const browserSync = require('browser-sync').create();
-const sass = require('gulp-sass');
-const rename = require('gulp-rename');
-const fileinclude = require('gulp-file-include');
-const gutil = require('gulp-util');
-const ftp = require('vinyl-ftp');
-const sourcemaps = require('gulp-sourcemaps');
-const notify = require('gulp-notify');
-const svgSprite = require('gulp-svg-sprite');
-const webpack = require('webpack');
-const webpackStream = require('webpack-stream');
-const ttf2woff =require('gulp-ttf2woff');
-const ttf2woff2 = require('gulp-ttf2woff2');
-const fs = require('fs');
-const tiny = require('gulp-tinypng-compress');
-const rev = require('gulp-rev');
-const revRewrite = require('gulp-rev-rewrite');
-const revdel = require('gulp-rev-delete-original');
+
+const autoprefixer = require('gulp-autoprefixer'); // autoprefixer
+const cleanCSS = require('gulp-clean-css'); // minify css
+const uglify = require('gulp-uglify-es').default; // minify js
+const del = require('del'); // delete files and folders
+const browserSync = require('browser-sync').create(); // browserSync
+const sass = require('gulp-sass'); // sass compiler
+const rename = require('gulp-rename'); // rename files
+const fileinclude = require('gulp-file-include'); // plugin for file include
+const sourcemaps = require('gulp-sourcemaps'); // sourcemap support for gulpjs
+const notify = require('gulp-notify'); // error messages
+const webpack = require('webpack'); // webpack
+const webpackStream = require('webpack-stream'); // webpack as a stream
+const ttf2woff =require('gulp-ttf2woff'); // converter ttf to woff
+const ttf2woff2 = require('gulp-ttf2woff2'); // converter ttf to woff2
+const fs = require('fs'); // module to work with files (read, write, etc.)
+const tiny = require('gulp-tinypng-compress'); // API for compress images
 const htmlmin = require('gulp-htmlmin');
 
 // DEV
-//svg sprite
-const svgSprites = () => {
-  return src('./src/img/svg/**.svg')
-    .pipe(svgSprite({
-      mode: {
-        stack: {
-          sprite: "../sprite.svg" //sprite file name
-        }
-      },
-    }))
-    .pipe(dest('./app/img'));
-}
-
 const resources = () => {
   return src('./src/resources/**')
     .pipe(dest('./app'))
@@ -210,7 +192,6 @@ const watchFiles = () => {
   watch('./src/img/**.jpg', imgToApp);
   watch('./src/img/**.jpeg', imgToApp);
   watch('./src/img/**.png', imgToApp);
-  watch('./src/img/svg/**.svg', svgSprites);
   watch('./src/fonts/**', woffFonts);
   watch('./src/fonts/**', woff2Fonts);
   watch('./src/fonts/**', fontsStyle);
@@ -228,13 +209,13 @@ exports.fonts = woffFonts;
 exports.fonts = woff2Fonts;
 exports.fontsStyle = fontsStyle;
 
-exports.default = series(clean, parallel(htmlInclude, scripts, woffFonts, woff2Fonts, resources, imgToApp, svgSprites), fontsStyle, styles, watchFiles);
+exports.default = series(clean, parallel(htmlInclude, scripts, woffFonts, woff2Fonts, resources, imgToApp), fontsStyle, styles, watchFiles);
 
 // BUILD
 const tinypng = () => {
   return src(['./src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg', './src/img/**.webp'])
     .pipe(tiny({
-      key: 'HkdjDW01hVL5Db6HXSYlnHMk9HCvQfDT',
+      key: 'trDJqH71snq3PZqlpMlJ8smfXYvWgynf',
       sigFile: './app/img/.tinypng-sigs',
       parallel: true,
       parallelMax: 50,
@@ -290,26 +271,6 @@ const scriptsBuild = () => {
     .pipe(dest('./app/js'))
 }
 
-const cache = () => {
-  return src('app/**/*.{css,js,svg,png,jpg,jpeg,woff2}', {
-    base: 'app'})
-    .pipe(rev())
-    .pipe(revdel())
-    .pipe(dest('app'))
-    .pipe(rev.manifest('rev.json'))
-    .pipe(dest('app'));
-};
-
-const rewrite = () => {
-  const manifest = src('app/rev.json');
-
-  return src('app/**/*.html')
-    .pipe(revRewrite({
-      manifest
-    }))
-    .pipe(dest('app'));
-}
-
 const htmlMinify = () => {
 	return src('app/**/*.html')
 		.pipe(htmlmin({
@@ -318,31 +279,4 @@ const htmlMinify = () => {
 		.pipe(dest('app'));
 }
 
-exports.cache = series(cache, rewrite);
-
-exports.build = series(clean, parallel(htmlInclude, scriptsBuild, woffFonts, woff2Fonts, resources, imgToApp, svgSprites), fontsStyle, stylesBuild, htmlMinify, tinypng);
-
-
-// deploy
-const deploy = () => {
-  let conn = ftp.create({
-    host: '',
-    user: '',
-    password: '',
-    parallel: 10,
-    log: gutil.log
-  });
-
-  let globs = [
-    'app/**',
-  ];
-
-  return src(globs, {
-      base: './app',
-      buffer: false
-    })
-    .pipe(conn.newer('')) // only upload newer files
-    .pipe(conn.dest(''));
-}
-
-exports.deploy = deploy;
+exports.build = series(clean, parallel(htmlInclude, scriptsBuild, woffFonts, woff2Fonts, resources, imgToApp), fontsStyle, stylesBuild, htmlMinify, tinypng);
