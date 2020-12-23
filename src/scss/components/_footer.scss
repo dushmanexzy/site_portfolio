@@ -9,7 +9,7 @@
     padding-bottom: 77px;
 
     @include mob {
-      flex-direction: column;
+      flex-wrap: wrap;
       padding-bottom: 47px;
     }
   }
