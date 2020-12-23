@@ -69,16 +69,16 @@ picture {
 .container {
   margin: 0 auto;
   padding: 0 15px;
-  width: 1200px;
+  max-width: 1200px;
 
   @include sl {
     padding: 0 40px;
-    width: 1024px;
+    max-width: 1024px;
   }
 
   @include mob {
     padding: 0 20px;
-    width: 320px;
+    min-width: 320px;
   }
 }
 
