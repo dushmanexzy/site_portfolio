@@ -5,25 +5,16 @@ $(document).ready(() => {
   $('#form').each(function () {
     $(this).validate({
       errorPlacement(error, element) {
-        return false;
+        return true;
       },
+      focusInvalid: false,
       rules: {
         name: {
           required: true,
         },
         email: {
           required: true,
-          maxlength: 6,
         },
-      },
-      messages: {
-        name: {
-          required: 'Введите что-нибудь!'
-        },
-        email: {
-          required: 'Введите что-нибудь!',
-          maxlength: 'Не более 6 символов'
-        }
       },
       submitHandler(form) {
         let th = $(form);
@@ -33,6 +24,8 @@ $(document).ready(() => {
           url: 'mail.php',
           data: th.serialize(),
         }).done(() => {
+          alert('Отправлено!!');
+
           th.trigger('reset');
         });
 
