@@ -1,4 +1,4 @@
-const {src, dest, parallel, series, watch} = require('gulp');
+const {src, dest, parallel, series, watch} = require('gulp'); //gulp
 
 const autoprefixer = require('gulp-autoprefixer'); // autoprefixer
 const cleanCSS = require('gulp-clean-css'); // minify css
@@ -163,6 +163,13 @@ const scripts = () => {
             }
           }]
         },
+        plugins: [
+          new webpack.ProvidePlugin({
+            $: 'jquery',
+            jquery: 'jquery',
+            'windows.jQuery': 'jquery'
+          })
+        ]
       }
     ))
     .on('error', function (err) {

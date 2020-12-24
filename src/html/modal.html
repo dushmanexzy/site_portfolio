@@ -5,19 +5,19 @@
   aria-labelledby="modalTitle"
   role="dialog"
 >
-  <form class="modal__form modal-form" name="modalForm">
+  <form id="form" class="modal__form modal-form" name="modalForm">
     <div class="modal__container">
       <h2 id="modalTitle" class="modal__title">
         Оставьте контактные данные и я вам перезвоню
       </h2>
       <!-- name -->
-      <label class="modal__label" for="firstName"
+      <label class="modal__label" for="name"
         >Ваше имя:
         <input
           class="modal-form__input js-modal-input"
           type="text"
-          name="firstName"
-          id="firstName"
+          name="name"
+          id="name"
           placeholder="ФИО"
           title="Введите данные в формате Фамилия Имя Отчество"
           required
