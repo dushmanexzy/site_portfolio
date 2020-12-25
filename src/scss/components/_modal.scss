@@ -3,6 +3,7 @@
   left: 50%;
   top: 50%;
   z-index: 1000;
+  display: none;
   border: 5px solid var(--color-wild-watermelon);
   padding: 10px 40px;
   width: 46%;
@@ -153,6 +154,7 @@
   top: 0;
   bottom: 0;
   z-index: 100;
+  display: none;
   background-color: var(--color-black);
   opacity: 0.5;
 }
