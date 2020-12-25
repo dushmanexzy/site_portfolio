@@ -20,7 +20,7 @@ $(document).ready(() => {
 
         $.ajax({
           type: 'POST',
-          url: 'mail.php',
+          url: '../mail.php',
           data: th.serialize(),
         }).done(() => {
           alert('Отправлено!!');
