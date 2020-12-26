@@ -48,6 +48,10 @@ picture {
   }
 }
 
+.stop-scroll {
+  @include stop-scroll;
+}
+
 .error {
   border: 2px #ff4019 solid !important; // stylelint-disable-line declaration-no-important
 }
