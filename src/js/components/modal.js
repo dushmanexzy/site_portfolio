@@ -3,6 +3,7 @@ import $ from 'jquery';
 // vars
 const body = $('.js-body');
 const modal = $('.js-modal');
+const form = $('.modal-form');
 const modalOverlay = $('.js-modal-overlay');
 const openModalBtns = $('.js-open-modal');
 const closeModalBtn = $('.js-modal-close');
@@ -32,9 +33,7 @@ const hideModal = () => {
 }
 
 const cleaningModalInputArea = () => {
-  modalInputArea.each((i) => {
-    modalInputArea[i].value = '';
-  })
+  form.trigger('reset');
 }
 
 const getFocusElement = (e) => {
