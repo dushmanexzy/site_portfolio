@@ -119,10 +119,14 @@
 }
 
 .swiper-button-prev {
-  content: url("../img/arrow.png");
   left: -15px;
   right: auto;
   width: 60px;
+  background: url("../img/arrow.png") no-repeat center;
+
+  &::after {
+    content: "";
+  }
 
   @include sl {
     display: none;
@@ -130,11 +134,15 @@
 }
 
 .swiper-button-next {
-  content: url("../img/arrow.png");
   left: auto;
   right: -15px;
   width: 60px;
+  background: url("../img/arrow.png") no-repeat center;
   transform: rotate(180deg);
+
+  &::after {
+    content: "";
+  }
 
   @include sl {
     display: none;
