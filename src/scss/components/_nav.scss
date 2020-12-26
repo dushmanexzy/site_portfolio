@@ -19,8 +19,9 @@
 
     &:hover,
     &:active {
+      border-bottom: 1px solid var(--color-wild-watermelon);
       color: var(--color-wild-watermelon) !important; // stylelint-disable declaration-no-important
-      transition: color 0.3s;
+      transition: all 0.3s;
     }
   }
 
