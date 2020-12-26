@@ -123,6 +123,16 @@ const fontsStyle = (done) => {
   done();
 }
 
+// для общего неминифицированного css
+const devStyles = () => {
+  return src('./src/scss/**/*.scss')
+  .pipe(sourcemaps.init())
+  .pipe(sass({
+    outputStyle: 'expanded'
+  }).on("error", notify.onError()))
+  .pipe(dest('./app/css/'))
+}
+
 const styles = () => {
   return src('./src/scss/**/*.scss')
     .pipe(sourcemaps.init())
@@ -191,6 +201,7 @@ const watchFiles = () => {
     },
   });
 
+  watch('./src/scss/**/*.scss', devStyles); // для неминифиц. css
   watch('./src/scss/**/*.scss', styles);
   watch('./src/js/**/*.js', scripts);
   watch('./src/html/*.html', htmlInclude);
@@ -209,6 +220,7 @@ const clean = () => {
 }
 
 exports.fileinclude = htmlInclude;
+exports.devStyles = devStyles; // для неминифиц. css
 exports.styles = styles;
 exports.scripts = scripts;
 exports.watchFiles = watchFiles;
@@ -216,7 +228,7 @@ exports.fonts = woffFonts;
 exports.fonts = woff2Fonts;
 exports.fontsStyle = fontsStyle;
 
-exports.default = series(clean, parallel(htmlInclude, scripts, woffFonts, woff2Fonts, resources, imgToApp), fontsStyle, styles, watchFiles);
+exports.default = series(clean, parallel(htmlInclude, scripts, woffFonts, woff2Fonts, resources, imgToApp), fontsStyle, devStyles, styles, watchFiles);
 
 // BUILD
 const tinypng = () => {
