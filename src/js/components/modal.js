@@ -11,6 +11,7 @@ const modalInputArea = $('.js-modal-input');
 
 // functions
 const showModal = () => {
+  body.addClass('stop-scroll');
   modal.attr('display', 'block');
   modalOverlay.attr('display', 'block');
   modalOverlay.fadeIn('slow');
@@ -19,6 +20,7 @@ const showModal = () => {
 }
 
 const hideModal = () => {
+  body.removeClass('stop-scroll');
   modalOverlay.fadeOut('slow');
   modal.fadeOut('slow');
   modal.attr('display', 'none');
