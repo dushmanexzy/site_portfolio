@@ -9,6 +9,8 @@ const closeModalBtn = $('.js-modal-close');
 const cancelModalBtn = $('.js-form-cancel');
 const modalInputArea = $('.js-modal-input');
 
+let currentFocusElement;
+
 // functions
 const showModal = () => {
   body.addClass('stop-scroll');
@@ -17,6 +19,7 @@ const showModal = () => {
   modalOverlay.fadeIn('slow');
   modal.fadeIn('slow');
   modal.attr('aria-hidden', false);
+  cancelModalBtn.focus();
 }
 
 const hideModal = () => {
@@ -34,10 +37,16 @@ const cleaningModalInputArea = () => {
   })
 }
 
+const getFocusElement = (e) => {
+  return e.target;
+}
+
 // open modal window
 openModalBtns.each((i) => {
+
   openModalBtns[i].addEventListener('click', (e) => {
     e.preventDefault();
+    currentFocusElement = getFocusElement(e);
     showModal();
   })
 });
@@ -47,6 +56,8 @@ openModalBtns.each((i) => {
 closeModalBtn.click((e) => {
   e.preventDefault();
   hideModal();
+  cleaningModalInputArea();
+  currentFocusElement.focus();
 })
 
 // click on cancel btn
@@ -54,6 +65,7 @@ cancelModalBtn.click((e) => {
   e.preventDefault();
   hideModal();
   cleaningModalInputArea();
+  currentFocusElement.focus();
 })
 
 // click on key 'Esc'
@@ -63,10 +75,13 @@ body.keyup((e) => {
   if (e.key === 'Escape') {
     hideModal();
     cleaningModalInputArea();
+    currentFocusElement.focus();
   }
 })
 
 // click on area != modal
 modalOverlay.click(() => {
   hideModal();
+  cleaningModalInputArea();
+  currentFocusElement.focus();
 })
