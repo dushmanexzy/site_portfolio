@@ -1,3 +1,4 @@
+import $ from 'jquery';
 'use strict';
 // vars
 const body = $('.js-body');

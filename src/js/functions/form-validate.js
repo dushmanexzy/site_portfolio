@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import validate from '../vendor/jquery.validate';
 
 $(document).ready(() => {
