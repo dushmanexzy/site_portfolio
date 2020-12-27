@@ -100,10 +100,14 @@
       }
     }
 
+    &:focus {
+      outline-color: var(--color-red-orange);
+    }
+
     &:hover,
     &:active {
       color: var(--color-wild-watermelon);
-      transition: color 0.3s;
+      transition: color 0.2s;
     }
 
     &--phone::before {
@@ -151,13 +155,13 @@
     width: 100%;
     font-size: 16px;
     color: var(--color-sunset-orange);
-    transition: font 0.3s ease-in;
+    transition: font 0.2s ease-in;
 
     &:hover,
     &:active {
       border-width: 2px;
       font-size: 20px;
-      transition: font ease-in 0.3s;
+      transition: font ease-in 0.2s;
     }
 
     &:disabled {
@@ -207,12 +211,16 @@
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.65;
-    transition: opacity ease 0.3s;
+    transition: opacity ease 0.2s;
+
+    &:focus {
+      outline-color: var(--color-red-orange);
+    }
 
     &:hover,
     &:active {
       opacity: 1;
-      transition: opacity ease 0.3s;
+      transition: opacity ease 0.2s;
     }
 
     &--vk {
