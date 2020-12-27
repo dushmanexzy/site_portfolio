@@ -24,6 +24,17 @@
   width: 45px;
   height: 32px;
   background-image: url("../img/burger.png");
+  transition: background-color 0.2s ease;
+
+  &:focus {
+    outline-color: var(--color-red-orange);
+  }
+
+  &:hover,
+  &:active {
+    background-color: var(--color-ghost);
+    transition: background-color 0.2s ease;
+  }
 
   @include sl {
     display: block;
@@ -44,17 +55,25 @@
   font-weight: 700;
   font-size: 25px;
   line-height: 54px;
-  transition: font 0.3s ease;
+  transition: font 0.2s ease;
 
-  &:hover,
-  &:active {
+  &:focus {
+    outline-color: var(--color-red-orange);
+    color: var(--color-sunset-orange);
+  }
+
+  &:hover {
     font-size: 28px;
-    transition: font 0.3s ease;
+    transition: font 0.2s ease;
 
     @include mob {
       font-size: 18px;
       transition: none;
     }
+  }
+
+  &:active {
+    color: var(--color-sunset-orange);
   }
 
   @include mob {
@@ -70,6 +89,10 @@
   font-size: 16px;
   color: var(--color-sunset-orange);
   transition: all ease-in 0.3s;
+
+  &:focus {
+    outline-color: var(--color-red-orange);
+  }
 
   &:hover,
   &:active {
@@ -93,6 +116,18 @@
 
 .call-icon {
   display: none;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+
+  &:focus {
+    outline-color: var(--color-red-orange);
+  }
+
+  &:hover,
+  &:active {
+    background-color: var(--color-ghost);
+    transition: all 0.2s ease;
+  }
 
   @include mob {
     display: block;
@@ -108,13 +143,24 @@
   .menu-open .burger {
     position: fixed;
     left: 13%;
-    top: 6%;
+    top: 10%;
     z-index: 110;
+    width: 32px;
     background-image: url("../img/close.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-color: inherit;
     transform: translateX(-100%);
+
+    &:focus {
+      outline-color: var(--color-red-orange);
+    }
+
+    &:hover,
+    &:active {
+      background-color: var(--color-bali-hai);
+      transition: all 0.2s ease;
+    }
   }
 
   .menu-open .header__nav {
@@ -148,7 +194,7 @@
 
 @include mob {
   .menu-open .burger {
-    top: 7%;
+    top: 12%;
     width: 20px;
     height: 20px;
   }
