@@ -88,7 +88,7 @@
   min-height: 45px;
   font-size: 16px;
   color: var(--color-sunset-orange);
-  transition: all ease-in 0.3s;
+  transition: all ease-in 0.2s;
 
   &:focus {
     outline-color: var(--color-red-orange);
@@ -98,7 +98,7 @@
   &:active {
     border-width: 2px;
     font-size: 20px;
-    transition: all ease-in 0.3s;
+    transition: all ease-in 0.2s;
   }
 
   &:disabled {
