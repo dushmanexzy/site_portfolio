@@ -96,20 +96,30 @@ picture {
   &--fill {
     font-size: 18px;
     background-color: var(--color-red-orange);
-    transition: color, background-color ease 0.3s;
+    transition: color, background-color ease 0.2s;
+
+    &:focus {
+      outline-color: var(--color-red-orange);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--color-black);
+      background-color: var(--color-white);
+    }
 
     &:hover {
       border: 3px solid var(--color-black);
       color: var(--color-black);
       background-color: var(--color-white);
-      transition: color, background-color ease 0.3s;
+      transition: color, background-color ease 0.2s;
     }
 
     &:active {
       border: 3px solid var(--color-black);
-      color: var(--color-black);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--color-white);
       background-color: var(--color-bali-hai);
-      transition: color, background-color ease 0.3s;
+      transition: color, background-color ease 0.2s;
     }
   }
 
