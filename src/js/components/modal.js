@@ -6,9 +6,8 @@ const modal = $('.js-modal');
 const form = $('.modal-form');
 const modalOverlay = $('.js-modal-overlay');
 const openModalBtns = $('.js-open-modal');
-const closeModalBtn = $('.js-modal-close');
+const closeModalBtns = $('.js-modal-close');
 const cancelModalBtn = $('.js-form-cancel');
-const modalInputArea = $('.js-modal-input');
 
 let currentFocusElement;
 
@@ -51,21 +50,16 @@ openModalBtns.each((i) => {
 });
 
 // close modal window
-// click on close btn
-closeModalBtn.click((e) => {
-  e.preventDefault();
-  hideModal();
-  cleaningModalInputArea();
-  currentFocusElement.focus();
-})
+// click on close btn ("X" or "Отмена")
+closeModalBtns.each((i) => {
 
-// click on cancel btn
-cancelModalBtn.click((e) => {
-  e.preventDefault();
-  hideModal();
-  cleaningModalInputArea();
-  currentFocusElement.focus();
-})
+  closeModalBtns[i].addEventListener('click', (e) => {
+    e.preventDefault();
+    hideModal();
+    cleaningModalInputArea();
+    currentFocusElement.focus();
+  })
+});
 
 // click on key 'Esc'
 body.keyup((e) => {
