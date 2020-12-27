@@ -108,7 +108,7 @@
   .menu-open .burger {
     position: fixed;
     left: 13%;
-    top: 5%;
+    top: 6%;
     z-index: 110;
     background-image: url("../img/close.png");
     background-size: contain;
@@ -130,7 +130,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding-left: 120px;
+    padding-left: 15%;
     width: 100vw;
     background-color: var(--color-ghost);
     opacity: 0.9;
@@ -140,16 +140,17 @@
   .menu-open .nav__item {
     font-size: 25px;
   }
+
+  .menu-open .call-tel {
+    margin-right: auto;
+  }
 }
 
 @include mob {
   .menu-open .burger {
+    top: 7%;
     width: 20px;
     height: 20px;
-  }
-
-  .menu-open .nav__list {
-    padding-left: 60px;
   }
 
   .menu-open .nav__item {
