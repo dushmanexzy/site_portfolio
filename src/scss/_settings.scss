@@ -64,6 +64,14 @@ picture {
   border: none;
   background: transparent;
   cursor: pointer;
+
+  &:disabled {
+    border: 2px solid rgb(0, 0, 0);
+    color: var(--color-white);
+    background-color: rgb(160, 157, 157);
+    opacity: 0.2;
+    pointer-events: none;
+  }
 }
 
 .container {

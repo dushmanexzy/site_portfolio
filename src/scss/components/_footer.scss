@@ -91,6 +91,7 @@
     line-height: normal;
     text-align: left;
     color: var(--color-black);
+    transition: opacity, transform 0.2s;
 
     &:not(:last-child) {
       margin-bottom: 30px;
@@ -104,10 +105,12 @@
       outline-color: var(--color-red-orange);
     }
 
+    &:focus,
     &:hover,
     &:active {
-      color: var(--color-wild-watermelon);
-      transition: color 0.2s;
+      opacity: 0.8;
+      transform: scaleX(1.05);
+      transition: opacity, transform 0.2s;
     }
 
     &--phone::before {
@@ -155,21 +158,18 @@
     width: 100%;
     font-size: 16px;
     color: var(--color-sunset-orange);
-    transition: font 0.2s ease-in;
+    transition: opacity 0.2s ease;
 
+    &:focus {
+      outline-color: var(--color-red-orange);
+    }
+
+    &:focus,
     &:hover,
     &:active {
       border-width: 2px;
-      font-size: 20px;
-      transition: font ease-in 0.2s;
-    }
-
-    &:disabled {
-      border: 2px solid rgb(0, 0, 0);
-      color: var(--color-white);
-      background-color: rgb(160, 157, 157);
-      opacity: 0.2;
-      pointer-events: none;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
     }
 
     @include mob {
@@ -217,6 +217,7 @@
       outline-color: var(--color-red-orange);
     }
 
+    &:focus,
     &:hover,
     &:active {
       opacity: 1;
