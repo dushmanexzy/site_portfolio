@@ -9,6 +9,15 @@
     background-image: url("../img/Ellipse.png");
     background-position: bottom right;
     background-repeat: no-repeat;
+
+    @include sl {
+      background-image: url("../img/Ellipse_1024.png");
+    }
+
+    @include mob {
+      background-image: url("../img/Ellipse_320.png");
+      background-position: center bottom;
+    }
   }
 
   &__container {
@@ -35,16 +44,10 @@
     }
   }
 
-  @include sl {
-    background-image: url("../img/Ellipse_1024.png");
-  }
-
   @include mob {
     display: flex;
     margin-bottom: 182px;
     padding-top: 55px;
-    background-image: url("../img/Ellipse_320.png");
-    background-position: center bottom;
   }
 }
 
