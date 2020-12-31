@@ -298,4 +298,5 @@ const htmlMinify = () => {
 		.pipe(dest('app'));
 }
 
+exports.tinypng = tinypng;
 exports.build = series(clean, parallel(htmlInclude, scriptsBuild, woffFonts, woff2Fonts, resources, imgToApp), fontsStyle, stylesBuild, htmlMinify, tinypng);
