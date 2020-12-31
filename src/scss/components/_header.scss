@@ -11,6 +11,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include mob {
+      max-width: 320px;
+    }
   }
 
   @include mob {
