@@ -15,16 +15,16 @@ const showModal = () => {
   body.addClass('stop-scroll');
   modal.attr('display', 'block');
   modalOverlay.attr('display', 'block');
-  modalOverlay.fadeIn('slow');
-  modal.fadeIn('slow');
+  modalOverlay.fadeIn();
+  modal.fadeIn();
   modal.attr('aria-hidden', false);
   closeModalBtns[1].focus();
 }
 
 const hideModal = () => {
   body.removeClass('stop-scroll');
-  modalOverlay.fadeOut('slow');
-  modal.fadeOut('slow');
+  modalOverlay.fadeOut();
+  modal.fadeOut();
   modal.attr('display', 'none');
   modalOverlay.attr('display', 'none');
   modal.attr('aria-hidden', true);
