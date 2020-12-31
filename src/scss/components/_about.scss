@@ -1,10 +1,15 @@
 .about {
   position: relative;
   padding-top: 27px;
-  background-image: url("../img/Ellipse.png");
-  background-position: bottom right;
-  background-repeat: no-repeat;
   background-color: var(--color-alabaster);
+
+  &__outer {
+    margin: 0 auto;
+    max-width: 1920px;
+    background-image: url("../img/Ellipse.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+  }
 
   &__container {
     display: flex;

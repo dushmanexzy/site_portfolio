@@ -1,44 +1,52 @@
 <section id="about" class="about">
-  <div class="container about__container">
-    <h2 class="visually-hidden">Обо мне</h2>
+  <div class="outer about__outer">
+    <div class="container about__container">
+      <h2 class="visually-hidden">Обо мне</h2>
 
-    <div class="tags">
-      <span class="tag brases">&#123;&nbsp;&#125;</span>
-      <span class="tag div div--one">&lt;div&gt;</span>
-      <span class="tag div div--two">&lt;div&gt;</span>
-      <span class="tag lattice">&#35;</span>
-      <span class="tag end-tag end-tag--one">&lt;&#47;&gt;</span>
-      <span class="tag end-tag end-tag--two">&lt;&#47;&gt;</span>
+      <div class="tags">
+        <span class="tag brases">&#123;&nbsp;&#125;</span>
+        <span class="tag div div--one">&lt;div&gt;</span>
+        <span class="tag div div--two">&lt;div&gt;</span>
+        <span class="tag lattice">&#35;</span>
+        <span class="tag end-tag end-tag--one">&lt;&#47;&gt;</span>
+        <span class="tag end-tag end-tag--two">&lt;&#47;&gt;</span>
+      </div>
+
+      <div class="about__text text-block">
+        <h3 class="text-block__title">Дмитрий Алексеев</h3>
+        <p class="text-block__subtitle">
+          Frontend-разработчик и веб-верстальщик
+        </p>
+
+        <a
+          href="#skills"
+          class="about__link btn-reset link link--fill js-anchor"
+          >Узнать больше</a
+        >
+      </div>
+
+      <picture class="about__photo main-photo">
+        <!-- webp -->
+        <source
+          media="(max-width: 1023px)"
+          type="image/webp"
+          srcset="img/main-photo__320.webp 1x, img/main-photo__320@2x.webp 2x"
+        />
+        <source
+          type="image/webp"
+          srcset="img/main-photo.webp 1x, img/main-photo@2x.webp 2x"
+        />
+        <!-- png -->
+        <source
+          media="(max-width: 1023px)"
+          srcset="img/main-photo__320.png 1x, img/main-photo__320@2x.png 2x"
+        />
+        <img
+          src="img/main-photo.png"
+          alt="Парень с бородой в наушниках на шее и в клетчатой рубашке, фото по пояс"
+          srcset="img/main-photo@2x.png 2x"
+        />
+      </picture>
     </div>
-
-    <div class="about__text text-block">
-      <h3 class="text-block__title">Дмитрий Алексеев</h3>
-      <p class="text-block__subtitle">Frontend-разработчик и веб-верстальщик</p>
-
-      <a href="#skills" class="about__link btn-reset link link--fill js-anchor">Узнать больше</a>
-    </div>
-
-    <picture class="about__photo main-photo">
-      <!-- webp -->
-      <source
-        media="(max-width: 1023px)"
-        type="image/webp"
-        srcset="img/main-photo__320.webp 1x, img/main-photo__320@2x.webp 2x"
-      />
-      <source
-        type="image/webp"
-        srcset="img/main-photo.webp 1x, img/main-photo@2x.webp 2x"
-      />
-      <!-- png -->
-      <source
-        media="(max-width: 1023px)"
-        srcset="img/main-photo__320.png 1x, img/main-photo__320@2x.png 2x"
-      />
-      <img
-        src="img/main-photo.png"
-        alt="Парень с бородой в наушниках на шее и в клетчатой рубашке, фото по пояс"
-        srcset="img/main-photo@2x.png 2x"
-      />
-    </picture>
   </div>
 </section>
