@@ -7,7 +7,6 @@ const form = $('.modal-form');
 const modalOverlay = $('.js-modal-overlay');
 const openModalBtns = $('.js-open-modal');
 const closeModalBtns = $('.js-modal-close');
-const cancelModalBtn = $('.js-form-cancel');
 
 let currentFocusElement;
 
@@ -19,7 +18,7 @@ const showModal = () => {
   modalOverlay.fadeIn('slow');
   modal.fadeIn('slow');
   modal.attr('aria-hidden', false);
-  cancelModalBtn.focus();
+  closeModalBtns[1].focus();
 }
 
 const hideModal = () => {
