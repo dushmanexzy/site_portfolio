@@ -57,6 +57,7 @@
   align-items: flex-start;
   align-self: flex-start;
   justify-content: flex-start;
+  margin-top: 150px;
 
   &__title {
     margin: 0;
@@ -93,6 +94,7 @@
   }
 
   @include sl {
+    margin-top: 0;
     padding-top: 180px;
   }
 
