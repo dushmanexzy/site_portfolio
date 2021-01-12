@@ -2,15 +2,15 @@ import $ from 'jquery';
 'use strict';
 // vars
 const html = $('html');
-const body = $('js-body');
+const body = $('.js-body');
 const modal = $('.js-modal');
 const form = $('.modal-form');
 const modalOverlay = $('.js-modal-overlay');
 const openModalBtns = $('.js-open-modal');
 const closeModalBtns = $('.js-modal-close');
 
-console.log(html);
 let currentFocusElement;
+console.log(body);
 
 // functions
 const showModal = () => {

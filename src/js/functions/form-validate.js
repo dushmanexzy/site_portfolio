@@ -24,8 +24,7 @@ $(document).ready(() => {
           url: '../mail.php',
           data: th.serialize(),
         }).done(() => {
-          alert('Отправлено!!');
-
+          alert('Good Job!');
           th.trigger('reset');
         });
 
