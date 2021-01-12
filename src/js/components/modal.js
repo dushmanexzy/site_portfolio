@@ -64,7 +64,7 @@ closeModalBtns.each((i) => {
 body.keyup((e) => {
   e.preventDefault();
 
-  if (e.key === 'Escape') {
+  if ((e.key === 'Escape') && (modal.attr('display') === 'block')) {
     hideModal();
     cleaningModalInputArea();
     currentFocusElement.focus();
