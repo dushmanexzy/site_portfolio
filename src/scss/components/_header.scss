@@ -147,8 +147,8 @@
 @include sl {
   .menu-open .burger {
     position: fixed;
-    left: 13%;
-    top: 10%;
+    left: 11%;
+    top: 40px;
     z-index: 110;
     width: 32px;
     background-image: url("../img/close.png");
@@ -163,8 +163,7 @@
 
     &:hover,
     &:active {
-      background-color: var(--color-bali-hai);
-      transition: all 0.2s ease;
+      background-color: transparent;
     }
   }
 
@@ -175,12 +174,11 @@
   .menu-open .nav__list {
     position: fixed;
     left: 50%;
-    top: 25px;
+    top: 0;
     z-index: 100;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
     padding-left: 15%;
     width: 100vw;
     background-color: var(--color-ghost);
@@ -192,6 +190,10 @@
     font-size: 25px;
   }
 
+  .menu-open .nav__link {
+    line-height: 35px;
+  }
+
   .menu-open .call-tel {
     margin-right: auto;
   }
@@ -199,12 +201,12 @@
 
 @include mob {
   .menu-open .burger {
-    top: 12%;
+    top: 20px;
     width: 20px;
     height: 20px;
   }
 
   .menu-open .nav__item {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
