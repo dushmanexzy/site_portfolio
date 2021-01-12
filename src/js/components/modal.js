@@ -1,18 +1,23 @@
 import $ from 'jquery';
 'use strict';
 // vars
-const body = $('.js-body');
+const html = $('html');
+const body = $('js-body');
 const modal = $('.js-modal');
 const form = $('.modal-form');
 const modalOverlay = $('.js-modal-overlay');
 const openModalBtns = $('.js-open-modal');
 const closeModalBtns = $('.js-modal-close');
 
+console.log(html);
 let currentFocusElement;
 
 // functions
 const showModal = () => {
-  body.addClass('stop-scroll');
+  let scrollPosition = -window.pageYOffset + 'px';
+  html.css('top', scrollPosition);
+  html.addClass('stop-scroll');
+
   modal.attr('display', 'block');
   modalOverlay.attr('display', 'block');
   modalOverlay.fadeIn();
@@ -22,7 +27,10 @@ const showModal = () => {
 }
 
 const hideModal = () => {
-  body.removeClass('stop-scroll');
+  html.removeClass('stop-scroll');
+  window.scrollTo(0, window.pageYOffset)
+  html.css('top', '');
+
   modalOverlay.fadeOut();
   modal.fadeOut();
   modal.attr('display', 'none');
