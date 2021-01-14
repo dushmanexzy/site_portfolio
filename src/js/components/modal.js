@@ -10,7 +10,6 @@ const openModalBtns = $('.js-open-modal');
 const closeModalBtns = $('.js-modal-close');
 
 let currentFocusElement;
-console.log(body);
 
 // functions
 const showModal = () => {
