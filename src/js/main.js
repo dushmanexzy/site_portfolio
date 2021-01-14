@@ -1,5 +1,4 @@
 // Vendors
-// import './vendor/jquery.validate';
 import './vendor/inputmask';
 // Components
 import './components/slider';

@@ -1,13 +1,13 @@
 import $ from 'jquery';
-import validate from '../vendor/jquery.validate';
+import 'jquery-validation';
 
-$(document).ready(() => {
+$(function () {
   $('#form').each(function () {
     $(this).validate({
       errorPlacement(error, element) {
         return true;
       },
-      focusInvalid: false,
+      focusInvalid: true, // не фокусируется
       rules: {
         name: {
           required: true,
@@ -16,9 +16,9 @@ $(document).ready(() => {
           required: true,
         },
       },
-      submitHandler(form) {
+      submitHandler(form) { // не работает
         let th = $(form);
-
+        console.log(th);
         $.ajax({
           type: 'POST',
           url: '../mail.php',
@@ -30,6 +30,6 @@ $(document).ready(() => {
 
         return false;
       }
-    })
+    });
   });
 });
