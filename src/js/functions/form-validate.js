@@ -11,9 +11,11 @@ $(function () {
       rules: {
         name: {
           required: true,
+          minlength: 8,
         },
         email: {
           required: true,
+          email: true,
         },
       },
       submitHandler(form) { // не работает
