@@ -1,13 +1,21 @@
 import $ from 'jquery';
 import 'jquery-validation';
 
+const createMessageElement = () => {
+  let messageBlock = document.createElement('div');
+  messageBlock.className = 'js-message';
+  messageBlock.innerHTML = `<strong>Сообщение отправлено!</strong>`;
+
+  document.body.prepend(messageBlock);
+}
+
 $(function () {
   $('#form').each(function () {
     $(this).validate({
       errorPlacement(error, element) {
         return true;
       },
-      focusInvalid: true, // не фокусируется
+      focusInvalid: true,
       rules: {
         name: {
           required: true,
@@ -18,15 +26,15 @@ $(function () {
           email: true,
         },
       },
-      submitHandler(form) { // не работает
+      submitHandler(form) {
         let th = $(form);
-        console.log(th);
+
         $.ajax({
           type: 'POST',
           url: '../mail.php',
           data: th.serialize(),
         }).done(() => {
-          alert('Good Job!');
+          createMessageElement();
           th.trigger('reset');
         });
 
