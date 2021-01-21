@@ -292,9 +292,7 @@ const scriptsBuild = () => {
         this.emit('end'); // Don't stop the rest of the task
       })
     .pipe(rename('main.min.js'))
-    .pipe(sourcemaps.init())
     .pipe(uglify().on("error", notify.onError()))
-    .pipe(sourcemaps.write('.'))
     .pipe(dest('./app/js'))
 }
 
