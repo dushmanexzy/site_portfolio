@@ -1,12 +1,14 @@
 import $ from 'jquery';
 import 'jquery-validation';
 
-const createMessageElement = () => {
+const shortShowMessageElement = () => {
   let messageBlock = document.createElement('div');
   messageBlock.className = 'js-message';
   messageBlock.innerHTML = `<strong>Сообщение отправлено!</strong>`;
 
   document.body.prepend(messageBlock);
+
+  setTimeout(() => messageBlock.remove(), 2000);
 }
 
 $(function () {
@@ -34,7 +36,7 @@ $(function () {
           url: '../mail.php',
           data: th.serialize(),
         }).done(() => {
-          createMessageElement();
+          shortShowMessageElement();
           th.trigger('reset');
         });
 
