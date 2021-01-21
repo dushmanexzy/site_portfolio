@@ -12,7 +12,7 @@ vars.$window.addEventListener('DOMContentLoaded', () => {
     vars.$header.classList.toggle('menu-open');
   })
 
-  vars.$document.addEventListener('click', (e) => {
+  vars.$body.addEventListener('click', (e) => {
     if (!vars.$header.contains(e.target)) {
       closeNavList();
     }
@@ -21,10 +21,8 @@ vars.$window.addEventListener('DOMContentLoaded', () => {
       closeNavList();
     }
 
-    vars.$body.addEventListener('keyup', (e) => {
-      if (e.key === 'Escape') {
-        closeNavList();
-      }
-    })
+    if (e.key === 'Escape') {
+      closeNavList();
+    }
   })
 })
