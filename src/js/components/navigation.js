@@ -13,8 +13,6 @@ vars.$window.addEventListener('DOMContentLoaded', () => {
   })
 
   vars.$document.addEventListener('click', (e) => {
-    e.preventDefault();
-
     if (!vars.$header.contains(e.target)) {
       closeNavList();
     }
@@ -24,8 +22,6 @@ vars.$window.addEventListener('DOMContentLoaded', () => {
     }
 
     vars.$body.addEventListener('keyup', (e) => {
-      e.preventDefault();
-
       if (e.key === 'Escape') {
         closeNavList();
       }
