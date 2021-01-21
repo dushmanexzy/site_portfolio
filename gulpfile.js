@@ -291,7 +291,10 @@ const scriptsBuild = () => {
         console.error('WEBPACK ERROR', err);
         this.emit('end'); // Don't stop the rest of the task
       })
+    .pipe(rename('main.min.js'))
+    .pipe(sourcemaps.init())
     .pipe(uglify().on("error", notify.onError()))
+    .pipe(sourcemaps.write('.'))
     .pipe(dest('./app/js'))
 }
 
@@ -303,5 +306,4 @@ const htmlMinify = () => {
 		.pipe(dest('app'));
 }
 
-exports.tinypng = tinypng;
 exports.build = series(clean, parallel(htmlInclude, scriptsBuild, woffFonts, woff2Fonts, resources, imgToApp, faviconToApp), fontsStyle, stylesBuild, htmlMinify, tinypng);
