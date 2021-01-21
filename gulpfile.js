@@ -25,8 +25,13 @@ const resources = () => {
 }
 
 const imgToApp = () => {
-	return src(['./src/img/*.jpg', './src/img/*.png', './src/img/*.jpeg', './src/img/svg/*.svg', './src/img/webp/*.webp'])
+	return src(['!./src/img/favicon/**/*', './src/img/*.jpg', './src/img/*.png', './src/img/*.jpeg', './src/img/svg/*.svg', './src/img/webp/*.webp'])
     .pipe(dest('./app/img'))
+}
+
+const faviconToApp = () => {
+  return src(['./src/img/favicon/**/*'])
+    .pipe(dest('./app'))
 }
 
 const htmlInclude = () => {
@@ -228,11 +233,11 @@ exports.fonts = woffFonts;
 exports.fonts = woff2Fonts;
 exports.fontsStyle = fontsStyle;
 
-exports.default = series(clean, parallel(htmlInclude, scripts, woffFonts, woff2Fonts, resources, imgToApp), fontsStyle, devStyles, styles, watchFiles);
+exports.default = series(clean, parallel(htmlInclude, scripts, woffFonts, woff2Fonts, resources, imgToApp, faviconToApp), fontsStyle, devStyles, styles, watchFiles);
 
 // BUILD
 const tinypng = () => {
-  return src(['./src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg', './src/img/**.webp'])
+  return src(['!./src/img/favicon/**/*', './src/img/**.jpg', './src/img/**.png', './src/img/**.jpeg', './src/img/**.webp'])
     .pipe(tiny({
       key: 'trDJqH71snq3PZqlpMlJ8smfXYvWgynf',
       sigFile: './app/img/.tinypng-sigs',
@@ -299,4 +304,4 @@ const htmlMinify = () => {
 }
 
 exports.tinypng = tinypng;
-exports.build = series(clean, parallel(htmlInclude, scriptsBuild, woffFonts, woff2Fonts, resources, imgToApp), fontsStyle, stylesBuild, htmlMinify, tinypng);
+exports.build = series(clean, parallel(htmlInclude, scriptsBuild, woffFonts, woff2Fonts, resources, imgToApp, faviconToApp), fontsStyle, stylesBuild, htmlMinify, tinypng);
