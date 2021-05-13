@@ -1,37 +1,32 @@
-## Welcome to GitHub Pages
+# Сайт-портфолио
+# Дмитрий Алексеев
+### Frontend-разрабочик, веб-верстальщик
+___
+Заданием проекта было сверстать страницу-портфолио для Дмитрия Алексеева и разместить на своем хостинге под своим доменом (в н.в. доступ к домену закрыт). 
+Дополнительным заданием от куратора была самостоятельная верстка адаптивного модального окна.
+___
 
-You can use the [editor on GitHub](https://github.com/dushmanexzy/diplom_skillbox_portfolio/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+#### При разработке использовались:
+- расширение браузера PixelPerfect
+- HTML5
+- SCSS
+- сборщик Gulp
+- JavaScript
+- библиотеки npmjs
+- swiperjs
+- inputmaskjs
+___
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+#### Для запуска проекта вам необходимо:
+1. Установить актуальную версию `node js` с официального сайта https://nodejs.org
+2. Скачать проект
+    1. Скачать zip-архив https://prnt.sc/12vkewy
+    2. Для пользователей с установленным `git` в консоли выполнить команду `git clone https://github.com/dushmanexzy/diplom_skillbox_portfolio.git`
+3. Зайти в папку с проектом (разархиварованным, если скачивали zip)
+4. В консоли из папки с проектом выполнить команду `npm install`
+5. После завершения установки всех зависимостей выполнить команду `gulp build`
+6. После сборки в проекте появится папка `app` c полностью готовым для залития на хостинг проектом.
+7. Посмотреть результат можно открыв файл `index.html` в браузере.
+___
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Сайт-портфолио Дмитрия Алексеева
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/dushmanexzy/diplom_skillbox_portfolio/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+По всем вопросам/замечаниям можно так же написать на почту <dvortsov-nevinka@mail.ru> или в телеграмм [@dushman4eg](https://t.me/dushman4eg). С радостью отвечу на все вопросы/внесу коррективы.
