@@ -21,7 +21,7 @@ ___
 1. Установить актуальную версию `node js` с официального сайта https://nodejs.org
 2. Скачать проект
     1. Скачать zip-архив [https://prnt.sc/12vkewy](https://prnt.sc/12vkewy)
-    2. Для пользователей с установленным `git` в консоли выполнить команду `it clone https://github.com/dushmanexzy/site_portfolio.git`
+    2. Для пользователей с установленным `git` в консоли выполнить команду `git clone https://github.com/dushmanexzy/site_portfolio.git`
 3. Зайти в папку с проектом (разархиварованным, если скачивали zip)
 4. В консоли из папки с проектом выполнить команду `npm install`
 5. После завершения установки всех зависимостей выполнить команду `gulp build`
